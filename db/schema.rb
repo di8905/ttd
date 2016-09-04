@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160901134248) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "current_station_id"
-    t.integer  "current_route_id"
-    t.index ["current_route_id"], name: "index_trains_on_current_route_id"
+    t.integer  "route_id"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
+    t.index ["route_id"], name: "index_trains_on_route_id"
   end
 
   create_table "users", force: :cascade do |t|
