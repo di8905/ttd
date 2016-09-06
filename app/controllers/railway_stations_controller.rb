@@ -20,7 +20,7 @@ class RailwayStationsController < ApplicationController
 
     respond_to do |format|
       if @railway_station.save
-        format.html { redirect_to @railway_station, notice: 'Станция успешно создана.' }
+        format.html { redirect_to :railway_stations, notice: 'Станция успешно создана.' }
       else
         format.html { render :new }
       end
