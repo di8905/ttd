@@ -11,9 +11,7 @@
   </thead>
 
   <tbody>
-    <% @railway_stations.each do |railway_station| %>
-      <%= render 'common/item', item: railway_station %>
-    <% end %>  
+      <%= render @railway_stations %>
   </tbody>
 </table>
 
