@@ -8,11 +8,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, cols: 20, rows: 5 %>
-  </div>
-
-  <div class="field">
     <%= f.label :railway_station_ids, "Выберите станции входящие в маршрут" %>
     <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true} %>
   </div>
