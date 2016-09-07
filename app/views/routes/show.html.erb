@@ -10,5 +10,16 @@
   <%= @route.description %>
 </p>
 
+<p>
+  <strong> Список станций маршрута: </strong></br>
+  <ul>
+  <% @route.railway_stations.each do |railway_station| %>
+  <li>
+   <%= railway_station.title %>
+  </li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Редактировать', edit_route_path(@route) %>
 <%= link_to 'Назад', routes_path %>
