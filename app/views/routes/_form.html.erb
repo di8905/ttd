@@ -1,0 +1,18 @@
+<%= form_for(@route) do |f| %>
+
+  <%= render 'common/errors', resource: @route %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, cols: 20, rows: 5 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{ @route.new_record? ? 'Создать маршрут' : 'Изменить маршрут' }" %>
+  </div>
+<% end %>

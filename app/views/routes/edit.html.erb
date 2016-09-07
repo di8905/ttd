@@ -1,17 +1,5 @@
 <h1>Изменить маршрут </h1>
 
-<%= form_for(@route) do |f| %>
-
-  <%= render 'common/errors', resource: @route %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Изменить маршрут' %>
-  </div>
-<% end %>
+  <%= render 'form' %>
 
 <%= link_to 'Назад', routes_path %>
