@@ -1,0 +1,2 @@
+class Wagon < ApplicationRecord
+end

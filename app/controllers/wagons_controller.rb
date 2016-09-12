@@ -1,0 +1,3 @@
+class WagonsController < ApplicationController
+
+end
