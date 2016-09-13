@@ -1,0 +1,17 @@
+<h1>Список вагонов</h1>
+
+<table>
+  <thead>
+    <th>Номер</th>
+    <th>Тип</th>
+    <th>Верхних мест</th>
+    <th>Нижних мест</th>
+  </thead>
+
+  <tbody>
+    <%= render @wagons %>
+  </tbody>
+
+</table>
+
+<%= link_to 'В начало', welcome_index_path %>
