@@ -4,4 +4,8 @@ class WagonsController < ApplicationController
     @wagons = Wagon.all
   end
 
+  def new
+    @wagon = Wagon.new
+  end
+
 end

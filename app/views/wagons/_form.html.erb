@@ -1,0 +1,30 @@
+<%= form_for(wagon) do |f| %>
+
+<%= render 'common/errors', resource: @wagon %>
+
+<div class="field">
+  <%= f.label "Тип вагона" %>
+  <% opt = options_for_select [["Плацкарт"], ["Купе"]] %>
+  <%= f.select :w_type, opt %>
+</div>
+
+<div class="field">
+  <%= f.label "Верхних мест" %>
+  <%= f.text_field :upper_seats, size: "7" %>
+</div>
+
+<div class="field">
+  <%= f.label "Нижних мест" %>
+  <%= f.text_field :lower_seats, size: "7" %>
+</div>
+
+<div class="field">
+  <%= f.label "Присоединить к поезду:" %>
+  <%= f.collection_select :train_id, Train.all, :id, :number %>
+</div>
+
+<div class="actions">
+  <%= f.submit "#{@wagon.new_record? ? 'Создать вагон' : 'Изменить вагон'}" %>
+</div>
+
+<% end %>
