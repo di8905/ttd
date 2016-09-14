@@ -15,7 +15,11 @@ class Train < ActiveRecord::Base
   end
 
   def seats_count(wagon_type, seat_type)
-
+    count = 0
+    self.wagons.each do |wagon|
+      count += wagon.send(seat_type.to_s) if wagon.w_type == wagon_type 
+    end
+    count
   end
 
 end

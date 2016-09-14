@@ -36,22 +36,22 @@
 
   <p>
     <strong>Верхних плацкартных мест:</strong>
-    <%= @platz_upper_seats_count %>
+    <%= @train.seats_count('Плацкарт', 'upper_seats') %>
   </p>
 
   <p>
     <strong>Нижних плацкартных мест:</strong>
-    <%= @platz_lower_seats_count %>
+    <%= @train.seats_count('Плацкарт', 'lower_seats') %>
   </p>
 
   <p>
     <strong>Верхних купейных мест:</strong>
-    <%= @coup_upper_seats_count %>
+    <%= @train.seats_count('Купе', 'upper_seats') %>
   </p>
 
   <p>
     <strong>Нижних купейных мест:</strong>
-    <%= @coup_lower_seats_count %>
+    <%= @train.seats_count('Купе', 'lower_seats') %>
   </p>
 <% end %>
 
