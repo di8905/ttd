@@ -5,4 +5,17 @@ class Train < ActiveRecord::Base
   has_many :wagons
 
   validates :number, presence: true
+
+  def wagon_count(wagon_type)
+    count = 0
+    self.wagons.each do |wagon|
+      count += 1 if wagon.w_type == wagon_type
+    end
+    count
+  end
+
+  def seats_count(wagon_type, seat_type)
+
+  end
+
 end
