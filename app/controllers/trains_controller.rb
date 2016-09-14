@@ -6,7 +6,6 @@ class TrainsController < ApplicationController
   end
 
   def show
-    @platz_wagons_count = 0
     @coup_wagons_count = 0
     @platz_upper_seats_count = 0
     @platz_lower_seats_count = 0
