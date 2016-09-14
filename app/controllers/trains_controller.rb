@@ -6,6 +6,23 @@ class TrainsController < ApplicationController
   end
 
   def show
+    @platz_wagons_count = 0
+    @coup_wagons_count = 0
+    @platz_upper_seats_count = 0
+    @platz_lower_seats_count = 0
+    @coup_upper_seats_count = 0
+    @coup_lower_seats_count = 0
+    @train.wagons.each do |wagon|
+      if wagon.w_type == 'Плацкарт'
+        @platz_wagons_count += 1
+        @platz_upper_seats_count += wagon.upper_seats
+        @platz_lower_seats_count += wagon.lower_seats
+      else
+       @coup_wagons_count += 1
+       @coup_upper_seats_count += wagon.upper_seats
+       @coup_lower_seats_count += wagon.lower_seats
+      end
+    end
   end
 
   def new

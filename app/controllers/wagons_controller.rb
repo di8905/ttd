@@ -50,7 +50,7 @@ private
   end
 
   def wagon_params
-    params.require(:wagon).permit(:w_type, :upper_seats, :lower_seats)
+    params.require(:wagon).permit(:w_type, :upper_seats, :lower_seats, :train_id)
   end
 
 end

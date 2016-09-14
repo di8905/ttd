@@ -21,5 +21,39 @@
    <% end %>
 </p>
 
+<% if @train.wagons.empty? %>
+<p> К поезду не присоединены вагоны </p>
+<% else %>
+  <p>
+    <strong>Плацкартных вагонов присоединено:</strong>
+    <%= @platz_wagons_count %>
+  </p>
+
+  <p>
+    <strong>Купейных вагонов присоединено:</strong>
+    <%= @coup_wagons_count %>
+  </p>
+
+  <p>
+    <strong>Верхних плацкартных мест:</strong>
+    <%= @platz_upper_seats_count %>
+  </p>
+
+  <p>
+    <strong>Нижних плацкартных мест:</strong>
+    <%= @platz_lower_seats_count %>
+  </p>
+
+  <p>
+    <strong>Верхних купейных мест:</strong>
+    <%= @coup_upper_seats_count %>
+  </p>
+
+  <p>
+    <strong>Нижних купейных мест:</strong>
+    <%= @coup_lower_seats_count %>
+  </p>
+<% end %>
+
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>

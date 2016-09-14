@@ -4,7 +4,7 @@
 
 <div class="field">
   <%= f.label "Тип вагона" %>
-  <% opt = options_for_select [["Плацкарт"], ["Купе"]] %>
+  <% opt = options_for_select [["Плацкарт"], ["Купе"]], wagon.w_type %>
   <%= f.select :w_type, opt %>
 </div>
 
