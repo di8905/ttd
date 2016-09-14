@@ -1,5 +1,9 @@
+<p id="notice"> <%= notice %> </p>
 <h1>Список вагонов</h1>
 
+<% if @wagons.empty? %>
+  <p>Список вагонов пуст</p>
+ <% else %>
 <table>
   <thead>
     <th>Номер</th>
@@ -11,6 +15,6 @@
   </tbody>
 
 </table>
-
-<%= link_to 'Создать вагон', new_wagon_path %>
+  <% end %>
+<%= link_to 'Создать вагон', new_wagon_path %> |
 <%= link_to 'В начало', welcome_index_path %>
