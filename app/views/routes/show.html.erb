@@ -10,8 +10,8 @@
     <strong> Список станций маршрута: </strong>
   </p>
   <ul>
-   <% @route.railway_stations.each do |railway_station| %>
-   <li> <%= railway_station.title %> </li>
+   <% @route.railway_stations.ordered.each do |station| %>
+   <li> <%= station.title %> </li>
    <% end %>
   </ul>
   <% else %>

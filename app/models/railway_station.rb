@@ -6,4 +6,6 @@ class RailwayStation < ActiveRecord::Base
   has_many :tickets_from_here, class_name: 'Ticket', foreign_key: :departure_station_id
 
   validates :title, presence: true
+
+  scope :ordered, -> { order("railway_stations_routes.station_order") }
 end
