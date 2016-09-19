@@ -7,5 +7,8 @@ class RailwayStation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :ordered, -> { order("railway_stations_routes.station_order") }
+  scope :ordered, -> { order("railway_stations_routes.position") }
+
+  def update_position
+  end
 end
