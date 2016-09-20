@@ -1,10 +1,10 @@
-<%= form_for(wagon) do |f| %>
+<%= form_for(carriage) do |f| %>
 
-<%= render 'common/errors', resource: @wagon %>
+<%= render 'common/errors', resource: @carriage %>
 
 <div class="field">
   <%= f.label "Тип вагона" %>
-  <% opt = options_for_select [["Плацкарт"], ["Купе"]], wagon.w_type %>
+  <% opt = options_for_select [["Плацкарт"], ["Купе"]], carriage.w_type %>
   <%= f.select :w_type, opt %>
 </div>
 
@@ -24,7 +24,7 @@
 </div>
 
 <div class="actions">
-  <%= f.submit "#{@wagon.new_record? ? 'Создать вагон' : 'Изменить вагон'}" %>
+  <%= f.submit "#{@carriage.new_record? ? 'Создать вагон' : 'Изменить вагон'}" %>
 </div>
 
 <% end %>

@@ -21,17 +21,17 @@
    <% end %>
 </p>
 
-<% if @train.wagons.empty? %>
+<% if @train.carriages.empty? %>
 <p> К поезду не присоединены вагоны </p>
 <% else %>
   <p>
     <strong>Плацкартных вагонов присоединено:</strong>
-    <%= @train.wagon_count('Плацкарт') %>
+    <%= @train.carriage_count('Плацкарт') %>
   </p>
 
   <p>
     <strong>Купейных вагонов присоединено:</strong>
-    <%= @train.wagon_count('Купе') %>
+    <%= @train.carriage_count('Купе') %>
   </p>
 
   <p>
