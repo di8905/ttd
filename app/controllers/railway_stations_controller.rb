@@ -37,6 +37,14 @@ class RailwayStationsController < ApplicationController
     end
   end
 
+  def update_position
+    route = Route.find(params[:id])
+    station = RailwayStation.find(params[:station])
+    position = params[:position]
+    station.update_position(route, position)
+    redirect_to route_path(route)
+  end
+
   def destroy
     @railway_station.destroy
     respond_to do |format|

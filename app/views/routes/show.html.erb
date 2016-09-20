@@ -11,7 +11,14 @@
   </p>
   <ul>
    <% @route.railway_stations.ordered.each do |station| %>
-   <li> <%= station.title %> </li>
+   <li> <%= station.title %>
+   <%= form_tag update_position_path do %>
+   Порядковый номер на маршруте
+   <%= text_field_tag :position, station.show_position(@route), size: 2 %>
+   <%= hidden_field_tag :station, station.id %>
+   <%= submit_tag "Сохранить"%>
+     <% end %>
+   </li>
    <% end %>
   </ul>
   <% else %>
