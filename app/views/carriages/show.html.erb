@@ -1,9 +1,11 @@
 <p id="notice"> <%= notice %> </p>
 <p><strong> Вагон номер: </strong> <%= @carriage.id %> </p>
-<p><strong> Тип: </strong> <%= @carriage.w_type %> </p>
+<p><strong> Тип: </strong> <%= @carriage.type_name %> </p>
 <p><strong> Присоединен к поезду: </strong> <%= @carriage.train ? @carriage.train.number : "Не назначен" %> </p>
-<p><strong> Верхних мест: </strong> <%= @carriage.upper_seats %> </p>
-<p><strong> Нижних мест: </strong> <%= @carriage.lower_seats %> </p>
-
-<%= link_to 'Редактировать', edit_carriage_path(@carriage) %> |
+  <% if @carriage.type %>
+  <%= render "#{@carriage.type.underscore}_seats" %>
+  <% else %>
+  <% render @carriage %>
+ <% end %>
+<%= link_to 'Редактировать', edit_carriage_path(@carriage.becomes(Carriage)) %> |
 <%= link_to 'Назад', carriages_path %>

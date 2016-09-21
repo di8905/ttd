@@ -1,7 +1,8 @@
 <tr>
   <td> <%= carriage.id %> </td>
-  <td> <%= carriage.w_type %> </td>
-  <td> <%= link_to 'Показать', carriage %>
-  <td> <%= link_to 'Редактировать', edit_carriage_path(carriage) %> </td>
-  <td> <%= link_to 'Удалить', carriage, method: :delete, data: {confirm: 'Вы уверены?'} %> </td>
+  <td> <%= carriage.type_name %> </td>
+  <% common_carriage = carriage.becomes(Carriage) %>
+  <td> <%= link_to 'Показать', common_carriage %>
+  <td> <%= link_to 'Редактировать', edit_carriage_path(common_carriage) %> </td>
+  <td> <%= link_to 'Удалить', common_carriage, method: :delete, data: {confirm: 'Вы уверены?'} %> </td>
 </tr>

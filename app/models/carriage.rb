@@ -1,5 +1,8 @@
 class Carriage < ApplicationRecord
   belongs_to :train
 
-  validates :w_type, presence: true
+  def type_name
+    'Не указан'
+  end
+
 end

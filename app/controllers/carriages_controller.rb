@@ -10,10 +10,11 @@ before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    carriage_type = params[:carriage][:type].constantize
+    @carriage = carriage_type.new(carriage_params)
     respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage, notice: 'Вагон успешно создан'}
+        format.html { redirect_to carriages_path, notice: 'Вагон успешно создан'}
       else
         format.html {render :edit }
       end
@@ -29,7 +30,7 @@ before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   def update
     respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to @carriage, notice: 'Вагон успешно отредактирован'}
+        format.html { redirect_to carriages_path, notice: 'Вагон успешно отредактирован'}
       else
         format.html {render :edit }
       end
@@ -50,7 +51,7 @@ private
   end
 
   def carriage_params
-    params.require(:carriage).permit(:w_type, :upper_seats, :lower_seats, :train_id)
+    params.require(:carriage).permit(:type, :train_id, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seats)
   end
 
 end
