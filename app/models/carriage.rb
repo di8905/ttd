@@ -3,6 +3,8 @@ class Carriage < ApplicationRecord
 
   before_create :set_number
 
+  validates :number, uniqueness: true
+
   def set_number
     last_num = Carriage.pluck(:number).max || 0
     self.number = last_num + 1
