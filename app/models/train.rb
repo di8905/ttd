@@ -6,6 +6,8 @@ class Train < ActiveRecord::Base
 
   validates :number, presence: true
 
+
+
   # def carriage_count(carriage_type)
   #   count = 0
   #   self.carriages.each do |carriage|
@@ -14,12 +16,8 @@ class Train < ActiveRecord::Base
   #   count
   # end
   #
-  # def seats_count(carriage_type, seat_type)
-  #   count = 0
-  #   self.carriages.each do |carriage|
-  #     count += carriage.send(seat_type.to_s) if carriage.w_type == carriage_type
-  #   end
-  #   count
-  # end
+  def seats_count(carriage_type, seat_type)
+    self.carriages.where(type: carriage_type).pluck(seat_type.to_sym).inject(:+)
+  end
 
 end
