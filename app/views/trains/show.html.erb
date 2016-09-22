@@ -21,39 +21,13 @@
    <% end %>
 </p>
 
-<% if @train.carriages.empty? %>
-<p> К поезду не присоединены вагоны </p>
-<% else %>
-  <p>
-    <strong>Плацкартных вагонов присоединено:</strong>
-    <%= @train.carriage_count('Плацкарт') %>
-  </p>
-
-  <p>
-    <strong>Купейных вагонов присоединено:</strong>
-    <%= @train.carriage_count('Купе') %>
-  </p>
-
-  <p>
-    <strong>Верхних плацкартных мест:</strong>
-    <%= @train.seats_count('Плацкарт', 'upper_seats') %>
-  </p>
-
-  <p>
-    <strong>Нижних плацкартных мест:</strong>
-    <%= @train.seats_count('Плацкарт', 'lower_seats') %>
-  </p>
-
-  <p>
-    <strong>Верхних купейных мест:</strong>
-    <%= @train.seats_count('Купе', 'upper_seats') %>
-  </p>
-
-  <p>
-    <strong>Нижних купейных мест:</strong>
-    <%= @train.seats_count('Купе', 'lower_seats') %>
-  </p>
+<strong> Список вагонов поезда </strong>
+<ul>
+<% @train.carriages.ordered(@train.carriage_sort_order).each do |carriage| %>
+ <li> <%= link_to "#{carriage.number}) #{carriage.type_name}", carriage.becomes(Carriage) %> </li>
 <% end %>
+</ul>
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>

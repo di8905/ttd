@@ -19,4 +19,10 @@
   <div class="actions">
     <%= f.submit "#{@train.new_record? ? 'Создать' : 'Изменить'}" %>
   </div>
+
+  <div class="field">
+    <%= f.label :carriage_sort_order, 'Сортировка с головы поезда?' %>
+    <%= f.check_box :carriage_sort_order %>
+  </div>
+
 <% end %>

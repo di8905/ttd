@@ -6,20 +6,20 @@ class Train < ActiveRecord::Base
 
   validates :number, presence: true
 
-  def carriage_count(carriage_type)
-    count = 0
-    self.carriages.each do |carriage|
-      count += 1 if carriage.w_type == carriage_type
-    end
-    count
-  end
-
-  def seats_count(carriage_type, seat_type)
-    count = 0
-    self.carriages.each do |carriage|
-      count += carriage.send(seat_type.to_s) if carriage.w_type == carriage_type
-    end
-    count
-  end
+  # def carriage_count(carriage_type)
+  #   count = 0
+  #   self.carriages.each do |carriage|
+  #     count += 1 if carriage.w_type == carriage_type
+  #   end
+  #   count
+  # end
+  #
+  # def seats_count(carriage_type, seat_type)
+  #   count = 0
+  #   self.carriages.each do |carriage|
+  #     count += carriage.send(seat_type.to_s) if carriage.w_type == carriage_type
+  #   end
+  #   count
+  # end
 
 end

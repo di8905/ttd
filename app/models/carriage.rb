@@ -5,6 +5,8 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: true
 
+  scope :ordered, -> (ascending) { ascending ? order(:number) : order("number DESC") }
+
   def set_number
     last_num = Carriage.pluck(:number).max || 0
     self.number = last_num + 1
