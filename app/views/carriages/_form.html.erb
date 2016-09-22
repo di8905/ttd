@@ -19,6 +19,21 @@
 </div>
 
 <div class="field">
+  <%= f.label "Верхних боковых мест" %>
+  <%= f.text_field :side_top_seats, size: "7" %>
+</div>
+
+<div class="field">
+  <%= f.label "Нижних боковых мест" %>
+  <%= f.text_field :side_bottom_seats, size: "7" %>
+</div>
+
+<div class="field">
+  <%= f.label "Сидячих мест" %>
+  <%= f.text_field :seats, size: "7" %>
+</div>
+
+<div class="field">
   <%= f.label "Присоединить к поезду:" %>
   <%= f.collection_select :train_id, Train.all, :id, :number %>
 </div>

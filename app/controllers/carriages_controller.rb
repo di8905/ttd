@@ -1,5 +1,6 @@
 class CarriagesController < ApplicationController
 before_action :set_carriage, only: [:show, :edit, :update, :destroy]
+ALLOWED_TYPES = %w( SvCarriage CoupeCarriage EconomyCarriage SeatCarriage)
 
   def index
     @carriages = Carriage.all
@@ -10,14 +11,18 @@ before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    carriage_type = params[:carriage][:type].constantize
-    @carriage = carriage_type.new(carriage_params)
-    respond_to do |format|
-      if @carriage.save
-        format.html { redirect_to carriages_path, notice: 'Вагон успешно создан'}
-      else
-        format.html {render :edit }
+    if ALLOWED_TYPES.include?(params[:carriage][:type])
+      carriage_type = params[:carriage][:type].constantize
+      @carriage = carriage_type.new(carriage_params)
+      respond_to do |format|
+        if @carriage.save
+          format.html { redirect_to carriages_path, notice: 'Вагон успешно создан'}
+        else
+          format.html {render :edit }
+        end
       end
+    else
+      redirect_to carriages_path, notice: 'Неверный тип вагона, вагон не создан'
     end
   end
 
