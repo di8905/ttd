@@ -7,7 +7,6 @@ class Train < ActiveRecord::Base
   validates :number, presence: true
 
   def seats_count(carriage_type, seat_type)
-    self.carriages.where(type: carriage_type).sum(seat_type)
+    carriages.where(type: carriage_type).sum(seat_type)
   end
-
 end

@@ -10,67 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922111739) do
-
-  create_table "carriages", force: :cascade do |t|
-    t.integer  "top_seats"
-    t.integer  "bottom_seats"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "train_id"
-    t.string   "type"
-    t.integer  "side_top_seats"
-    t.integer  "side_bottom_seats"
-    t.integer  "seats"
-    t.integer  "number"
-    t.index ["train_id"], name: "index_carriages_on_train_id"
+ActiveRecord::Schema.define(version: 20_160_922_111_739) do
+  create_table 'carriages', force: :cascade do |t|
+    t.integer  'top_seats'
+    t.integer  'bottom_seats'
+    t.datetime 'created_at',        null: false
+    t.datetime 'updated_at',        null: false
+    t.integer  'train_id'
+    t.string   'type'
+    t.integer  'side_top_seats'
+    t.integer  'side_bottom_seats'
+    t.integer  'seats'
+    t.integer  'number'
+    t.index ['train_id'], name: 'index_carriages_on_train_id'
   end
 
-  create_table "railway_stations", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'railway_stations', force: :cascade do |t|
+    t.string   'title'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "railway_stations_routes", force: :cascade do |t|
-    t.integer "railway_station_id"
-    t.integer "route_id"
-    t.integer "position"
+  create_table 'railway_stations_routes', force: :cascade do |t|
+    t.integer 'railway_station_id'
+    t.integer 'route_id'
+    t.integer 'position'
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'routes', force: :cascade do |t|
+    t.string   'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.integer  "number"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id"
-    t.integer  "train_id"
-    t.integer  "departure_station_id"
-    t.integer  "destination_station_id"
-    t.index ["departure_station_id"], name: "index_tickets_on_departure_station_id"
-    t.index ["destination_station_id"], name: "index_tickets_on_destination_station_id"
-    t.index ["train_id"], name: "index_tickets_on_train_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
+  create_table 'tickets', force: :cascade do |t|
+    t.integer  'number'
+    t.datetime 'created_at',             null: false
+    t.datetime 'updated_at',             null: false
+    t.integer  'user_id'
+    t.integer  'train_id'
+    t.integer  'departure_station_id'
+    t.integer  'destination_station_id'
+    t.index ['departure_station_id'], name: 'index_tickets_on_departure_station_id'
+    t.index ['destination_station_id'], name: 'index_tickets_on_destination_station_id'
+    t.index ['train_id'], name: 'index_tickets_on_train_id'
+    t.index ['user_id'], name: 'index_tickets_on_user_id'
   end
 
-  create_table "trains", force: :cascade do |t|
-    t.string   "number"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "current_station_id"
-    t.integer  "route_id"
-    t.boolean  "carriage_sort_order"
-    t.index ["current_station_id"], name: "index_trains_on_current_station_id"
-    t.index ["route_id"], name: "index_trains_on_route_id"
+  create_table 'trains', force: :cascade do |t|
+    t.string   'number'
+    t.datetime 'created_at',          null: false
+    t.datetime 'updated_at',          null: false
+    t.integer  'current_station_id'
+    t.integer  'route_id'
+    t.boolean  'carriage_sort_order'
+    t.index ['current_station_id'], name: 'index_trains_on_current_station_id'
+    t.index ['route_id'], name: 'index_trains_on_route_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "user_name"
+  create_table 'users', force: :cascade do |t|
+    t.string 'user_name'
   end
-
 end

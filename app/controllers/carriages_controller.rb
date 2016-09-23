@@ -15,9 +15,9 @@ class CarriagesController < ApplicationController
       @carriage = carriage_type.new(carriage_params)
       respond_to do |format|
         if @carriage.save
-          format.html { redirect_to carriages_path, notice: 'Вагон успешно создан'}
+          format.html { redirect_to carriages_path, notice: 'Вагон успешно создан' }
         else
-          format.html {render :edit }
+          format.html { render :edit }
         end
       end
     else
@@ -34,9 +34,9 @@ class CarriagesController < ApplicationController
   def update
     respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to carriages_path, notice: 'Вагон успешно отредактирован'}
+        format.html { redirect_to carriages_path, notice: 'Вагон успешно отредактирован' }
       else
-        format.html {render :edit }
+        format.html { render :edit }
       end
     end
   end
@@ -44,11 +44,11 @@ class CarriagesController < ApplicationController
   def destroy
     @carriage.destroy
     respond_to do |format|
-      format.html { redirect_to carriages_url, notice: 'Вагон успешно удален'}
+      format.html { redirect_to carriages_url, notice: 'Вагон успешно удален' }
     end
   end
 
-private
+  private
 
   def set_carriage
     @carriage = Carriage.find(params[:id])
@@ -57,5 +57,4 @@ private
   def carriage_params
     params.require(:carriage).permit(:type, :train_id, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seats)
   end
-
 end

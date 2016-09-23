@@ -1,5 +1,5 @@
 class Carriage < ApplicationRecord
-  ALLOWED_TYPES = %w( SvCarriage CoupeCarriage EconomyCarriage SeatCarriage)
+  ALLOWED_TYPES = %w(SvCarriage CoupeCarriage EconomyCarriage SeatCarriage).freeze
 
   belongs_to :train
 
@@ -7,13 +7,14 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: true
 
-  scope :ordered, -> (ascending) { ascending ? order(:number) : order("number DESC") }
+  scope :ordered, -> (ascending) { ascending ? order(:number) : order('number DESC') }
 
   def type_name
     'Не указан'
   end
 
   protected
+
   def set_number
     last_num = Carriage.maxumum('number') || 0
     self.number = last_num + 1

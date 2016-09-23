@@ -52,11 +52,12 @@ class RailwayStationsController < ApplicationController
   end
 
   private
-    def set_railway_station
-      @railway_station = RailwayStation.find(params[:id])
-    end
 
-    def railway_station_params
-      params.require(:railway_station).permit(:title)
-    end
+  def set_railway_station
+    @railway_station = RailwayStation.find(params[:id])
+  end
+
+  def railway_station_params
+    params.require(:railway_station).permit(:title)
+  end
 end

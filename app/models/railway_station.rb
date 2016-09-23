@@ -7,7 +7,7 @@ class RailwayStation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :ordered, -> { order("railway_stations_routes.position") }
+  scope :ordered, -> { order('railway_stations_routes.position') }
 
   def update_position(route, position)
     selected_record = railway_stations_routes.where(route_id: route).first
