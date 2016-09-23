@@ -1,6 +1,5 @@
 class CarriagesController < ApplicationController
-before_action :set_carriage, only: [:show, :edit, :update, :destroy]
-ALLOWED_TYPES = %w( SvCarriage CoupeCarriage EconomyCarriage SeatCarriage)
+  before_action :set_carriage, only: [:show, :edit, :update, :destroy]
 
   def index
     @carriages = Carriage.all
@@ -11,7 +10,7 @@ ALLOWED_TYPES = %w( SvCarriage CoupeCarriage EconomyCarriage SeatCarriage)
   end
 
   def create
-    if ALLOWED_TYPES.include?(params[:carriage][:type])
+    if Carriage::ALLOWED_TYPES.include?(params[:carriage][:type])
       carriage_type = params[:carriage][:type].constantize
       @carriage = carriage_type.new(carriage_params)
       respond_to do |format|

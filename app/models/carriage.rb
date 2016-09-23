@@ -1,4 +1,6 @@
 class Carriage < ApplicationRecord
+  ALLOWED_TYPES = %w( SvCarriage CoupeCarriage EconomyCarriage SeatCarriage)
+
   belongs_to :train
 
   before_create :set_number
