@@ -9,13 +9,13 @@ class Carriage < ApplicationRecord
 
   scope :ordered, -> (ascending) { ascending ? order(:number) : order("number DESC") }
 
-  def set_number
-    last_num = Carriage.pluck(:number).max || 0
-    self.number = last_num + 1
-  end
-
   def type_name
     'Не указан'
   end
 
+  protected
+  def set_number
+    last_num = Carriage.maxumum('number') || 0
+    self.number = last_num + 1
+  end
 end
