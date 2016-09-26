@@ -18,6 +18,22 @@ class RailwayStation < ActiveRecord::Base
     station_route(route).try(:position)
   end
   
+  def arrival(route)
+    station_route(route).try(:arrival)
+  end
+  
+  def set_arrival(route, time)
+    station_route(route).update(arrival: time)
+  end
+  
+  def departure(route)
+    station_route(route).try(:departure)
+  end
+  
+  def set_departure(route, time)
+    station_route(route).update(departure: time)
+  end
+  
   protected
   
   def station_route(route)

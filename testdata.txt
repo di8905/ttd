@@ -1,25 +1,4 @@
-train1 = Train.new(number: '1Console')
-train2 = Train.new(number: '2Console')
-msk = RailwayStation.new(title: 'Msk')
-spb = RailwayStation.new(title: 'Spb')
-vi = RailwayStation.new(title: 'Vishera')
-route1 = Route.new(name: 'Test route')
-ticket1 = Ticket.new(number: 1)
-ticket1.save
-ticket2 = Ticket.new(number: 2)
-ticket2.save
-train1.current_station = msk
-train2.current_station = vi
-train1.route = route1
-train2.route = route1
-train1.save
-train2.save
-msk.save
-spb.save
-vi.save
-ticket1.departure_station = spb
-ticket1.destination_station = msk
-route1.railway_stations << spb << msk
-spb.tickets_to_here
-spb.tickets_from_here
-msk.tickets_to_here
+train = Train.find(1)
+msk = RailwayStation.find(29)
+spb = RailwayStation.where(title: "Спб").first
+route = Route.find(16)
