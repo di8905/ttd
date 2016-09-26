@@ -7,7 +7,7 @@ class CarriagesController < ApplicationController
   end
 
   def new
-    @carriage = Carriage.new
+    @carriage = Carriage.new(train_id: @train.id)
   end
 
   def create
