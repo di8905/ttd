@@ -1,5 +1,6 @@
 class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:index, :create, :new]
 
   def index
     @carriages = Carriage.all
@@ -15,7 +16,7 @@ class CarriagesController < ApplicationController
       @carriage = carriage_type.new(carriage_params)
       respond_to do |format|
         if @carriage.save
-          format.html { redirect_to carriages_path, notice: 'Вагон успешно создан' }
+          format.html { redirect_to @carriage.train, notice: 'Вагон успешно создан' }
         else
           format.html { render :edit }
         end
@@ -34,7 +35,7 @@ class CarriagesController < ApplicationController
   def update
     respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to carriages_path, notice: 'Вагон успешно отредактирован' }
+        format.html { redirect_to @carriage.train, notice: 'Вагон успешно отредактирован' }
       else
         format.html { render :edit }
       end
@@ -44,7 +45,7 @@ class CarriagesController < ApplicationController
   def destroy
     @carriage.destroy
     respond_to do |format|
-      format.html { redirect_to carriages_url, notice: 'Вагон успешно удален' }
+      format.html { redirect_to @carriage.train, notice: 'Вагон успешно удален' }
     end
   end
 
@@ -52,6 +53,10 @@ class CarriagesController < ApplicationController
 
   def set_carriage
     @carriage = Carriage.find(params[:id])
+  end
+  
+  def set_train
+    @train = Train.find(params[:train_id])
   end
 
   def carriage_params

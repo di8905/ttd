@@ -7,6 +7,5 @@
   <% else %>
   <% render @carriage %>
  <% end %>
-<%= link_to 'Редактировать', edit_carriage_path(@carriage.becomes(Carriage)) %> |
-<%= link_to 'К поезду', @carriage.train %> |
-<%= link_to 'К списку вагонов', carriages_path %>
+<%= link_to 'Редактировать', edit_carriage_path(@carriage) %> |
+<%= link_to 'К поезду', @carriage.train %> 

@@ -16,7 +16,7 @@ class Carriage < ApplicationRecord
   protected
 
   def set_number
-    last_num = Carriage.maxumum('number') || 0
+    last_num = Carriage.maximum('number') || 0
     self.number = last_num + 1
   end
 end
