@@ -11,15 +11,15 @@ p
       tr
         th Название
         th Позиция
-      - @route.railway_stations.each do |station|
+      - @route.railway_stations.ordered.each do |station|
         tr
           td
             = station.title
           td
-            = form_tag update_position_railway_station_path, method: :patch do
-            = text_field_tag :position, station.show_position(@route), size: 2
-            = hidden_field_tag :station, station
-            = submit_tag 'Сохранить'
+            = form_tag update_position_railway_station_path(station), method: :patch do
+              = text_field_tag :position, station.show_position(@route), size: 2
+              = hidden_field_tag :route_id, @route.id
+              = submit_tag "Сохранить"
   - else
     = strong Станци на маршруте нет
 - if @route.trains.present?    
