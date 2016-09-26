@@ -1,0 +1,45 @@
+p#notice 
+  = notice
+p 
+  strong Название маршрута: 
+  = @route.name
+p  
+  - if @route.railway_stations.present?
+    strong Список станций маршрута:
+    table
+      thead
+      tr
+        th Название
+        th Позиция
+      - @route.railway_stations.each do |station|
+        tr
+          td
+            = station.title
+          td
+            = form_tag update_position_railway_station_path, method: :patch do
+            = text_field_tag :position, station.show_position(@route), size: 2
+            = hidden_field_tag :station, station
+            = submit_tag 'Сохранить'
+  - else
+    = strong Станци на маршруте нет
+- if @route.trains.present?    
+  p 
+    strong Список поездов на маршруте:
+    table
+      thead
+      tr
+        th Номер
+        th Количество вагонов
+      - @route.trains.each do |train|
+        tr
+          td 
+            = link_to train.number, train_path(train)
+          td 
+            = train.carriages.length
+=> link_to 'Редактировать', edit_route_path(@route)
+|
+ |
+=<> link_to 'Назад', routes_path
+|
+ |
+=< link_to 'В начало', welcome_index_path

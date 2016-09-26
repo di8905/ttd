@@ -12,7 +12,7 @@
   <ul>
    <% @route.railway_stations.ordered.each do |station| %>
    <li> <%= station.title %>
-   <%= form_tag update_position_path do %>
+   <%= form_tag update_position_railway_station_path(@route), method: :patch do %>
    Порядковый номер на маршруте
    <%= text_field_tag :position, station.show_position(@route), size: 2 %>
    <%= hidden_field_tag :station, station.id %>
