@@ -24,15 +24,14 @@ p
               = submit_tag "Сохранить"
           td
             = form_tag set_departure_railway_station_path(station), method: :patch do
-              - station_route = station.railway_stations_routes.where(route: @route).first
-              => select_time(station_route.departure)
+              => select_time(station.departure(@route))
               = hidden_field_tag :route_id, @route.id
               => submit_tag 'Сохранить'
           td 
             = form_tag set_arrival_railway_station_path(station), method: :patch do
-            - station_route = station.railway_stations_routes.where(route: @route).first
-            => select_time(station_route.arrival)
-            => submit_tag 'Сохранить'
+              => select_time(station.arrival(@route))
+              = hidden_field_tag :route_id, @route.id
+              => submit_tag 'Сохранить'
   - else
     = strong Станци на маршруте нет
 - if @route.trains.present?    

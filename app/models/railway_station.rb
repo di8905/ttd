@@ -23,7 +23,8 @@ class RailwayStation < ActiveRecord::Base
   end
   
   def set_arrival(route, time)
-    station_route(route).update(arrival: time)
+    station_route = station_route(route)
+    station_route.update(arrival: time) if station_route
   end
   
   def departure(route)
@@ -35,7 +36,7 @@ class RailwayStation < ActiveRecord::Base
     station_route.update(departure: time) if station_route
   end
   
-  # 
+  private
   
   def station_route(route)
     @station_route ||= railway_stations_routes.where(route_id: route).first
