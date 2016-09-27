@@ -2,3 +2,5 @@ train = Train.find(1)
 msk = RailwayStation.find(29)
 spb = RailwayStation.where(title: "Спб").first
 route = Route.find(16)
+srot = msk.station_route(route)
+Route.joins(:railway_stations).where(["railway_stations.id=?", spb])
