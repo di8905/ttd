@@ -31,10 +31,11 @@ class RailwayStation < ActiveRecord::Base
   end
   
   def set_departure(route, time)
-    station_route(route).update(departure: time)
+    station_route = station_route(route)
+    station_route.update(departure: time) if station_route
   end
   
-  protected
+  # 
   
   def station_route(route)
     @station_route ||= railway_stations_routes.where(route_id: route).first

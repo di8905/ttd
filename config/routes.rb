@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   resources :railway_stations do
     patch :update_position, on: :member
+    patch :set_departure, on: :member
+    patch :set_arrival, on: :member
   end
   resources :routes
   

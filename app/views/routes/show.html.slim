@@ -11,6 +11,8 @@ p
       tr
         th Название
         th Позиция
+        th Время отправления
+        th Время прибытия
       - @route.railway_stations.ordered.each do |station|
         tr
           td
@@ -20,6 +22,17 @@ p
               = text_field_tag :position, station.show_position(@route), size: 2
               = hidden_field_tag :route_id, @route.id
               = submit_tag "Сохранить"
+          td
+            = form_tag set_departure_railway_station_path(station), method: :patch do
+              - station_route = station.railway_stations_routes.where(route: @route).first
+              => select_time(station_route.departure)
+              = hidden_field_tag :route_id, @route.id
+              => submit_tag 'Сохранить'
+          td 
+            = form_tag set_arrival_railway_station_path(station), method: :patch do
+            - station_route = station.railway_stations_routes.where(route: @route).first
+            => select_time(station_route.arrival)
+            => submit_tag 'Сохранить'
   - else
     = strong Станци на маршруте нет
 - if @route.trains.present?    
