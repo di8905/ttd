@@ -29,7 +29,10 @@ br
         td = link_to train.number, train_path(train)
         td = @first_station.departure(train.route) ? @first_station.departure(train.route).strftime("%H:%M") : "не указано"
         td = @last_station.arrival(train.route) ? @last_station.arrival(train.route).strftime("%H:%M") : "не указано"
-        td = link_to 'Купить билет', new_ticket_path
+        td 
+          = form_tag new_ticket_path, method: :get
+          = hidden_field_tag :train_id, train.id
+          = submit_tag 'Купить билет'
 
 =<> link_to 'Назад', routes_path
 |
