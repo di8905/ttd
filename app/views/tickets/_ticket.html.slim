@@ -1,5 +1,9 @@
 tr
   td
-    =ticket.id
+    = link_to "#{ticket.id}", ticket_url(ticket)
+  td  
+    = ticket.user ? ticket.user.user_name : "Пользователь не задан"
   td 
-    =ticket.inspect
+    = link_to "Показать", ticket_url(ticket)  
+  td
+    = link_to "Удалить", ticket_url(ticket), method: :delete, data: { confirm: "Вы уверены?" }
