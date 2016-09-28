@@ -1,8 +1,7 @@
 p#notice = notice
 h1 Поиск билетов
 = form_tag ticket_search_path, method: :get
-  strong Начальная станция:
-<<<<<<< HEAD
+  strong Начальная станция: 
   =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title
   strong Конечная станция: 
   =<> collection_select :destination_station, :id, RailwayStation.all, :id, :title
@@ -13,20 +12,6 @@ br
   | Станции для поиска: 
   =<> @departure_station.title
   =<> @destination_station.title
-=======
-  =<> collection_select :first_station, :id, RailwayStation.all, :id, :title
-  strong Конечная станция: 
-  =<> collection_select :last_station, :id, RailwayStation.all, :id, :title
-  br
-  = submit_tag 'Искать'
-br
-- if @first_station && @last_station
-  | Станции для поиска: 
-  =<> @first_station.title
-  =<> @last_station.title
->>>>>>> ad1c43e25fdd5675e88345172376701de2513499
-br
-
 -if @trains
   table 
     thead
@@ -40,7 +25,6 @@ br
     - @trains.each do |train|  
       tr
         td = link_to train.number, train_path(train)
-<<<<<<< HEAD
         td = @departure_station.departure(train.route) ? @departure_station.departure(train.route).strftime("%H:%M") : "не указано"
         td = @destination_station.arrival(train.route) ? @destination_station.arrival(train.route).strftime("%H:%M") : "не указано"
         td 
@@ -49,15 +33,5 @@ br
           = hidden_field_tag :departure_station_id, @departure_station.id
           = hidden_field_tag :destination_station_id, @destination_station.id
           = submit_tag 'Купить билет'
-
-=======
-        td = @first_station.departure(train.route) ? @first_station.departure(train.route).strftime("%H:%M") : "не указано"
-        td = @last_station.arrival(train.route) ? @last_station.arrival(train.route).strftime("%H:%M") : "не указано"
-        td = link_to 'Купить билет', new_ticket_path
-
-=<> link_to 'Назад', routes_path
-|
- |
->>>>>>> ad1c43e25fdd5675e88345172376701de2513499
 =< link_to 'В начало', welcome_index_path
   
