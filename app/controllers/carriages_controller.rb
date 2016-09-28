@@ -7,13 +7,13 @@ class CarriagesController < ApplicationController
   end
 
   def new
-    @carriage = Carriage.new(train_id: @train.id)
+    @carriage = @train.carriages.new
   end
 
   def create
     if Carriage::ALLOWED_TYPES.include?(params[:carriage][:type])
       carriage_type = params[:carriage][:type].constantize
-      @carriage = carriage_type.new(carriage_params)
+      @carriage = @train.carriages.new(carriage_params)
       respond_to do |format|
         if @carriage.save
           format.html { redirect_to @carriage.train, notice: 'Вагон успешно создан' }
@@ -60,6 +60,6 @@ class CarriagesController < ApplicationController
   end
 
   def carriage_params
-    params.require(:carriage).permit(:type, :train_id, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seats)
+    params.require(:carriage).permit(:type, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seats)
   end
 end

@@ -2,6 +2,11 @@
 
 <%= render 'common/errors', resource: @carriage %>
 <% f.object = carriage %>
+
+<div class="field">
+  <%= f.label "Будет присоединен к поезду: #{@train.number}" %>
+</div>
+
 <div class="field">
   <%= f.label "Тип вагона" %>
   <% opt = options_for_select [ ["СВ", :SvCarriage], ["Купе", :CoupeCarriage], ["Плацкарт", :EconomyCarriage], ["Сидячий", :SeatCarriage] ], carriage.type %>
@@ -31,11 +36,6 @@
 <div class="field">
   <%= f.label "Сидячих мест" %>
   <%= f.text_field :seats, size: "7" %>
-</div>
-
-<div class="field">
-  <%= f.label "Присоединить к поезду:" %>
-  <%= f.collection_select :train_id, Train.all, :id, :number %>
 </div>
 
 <div class="actions">
