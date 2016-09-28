@@ -1,16 +1,7 @@
 p#notice = notice
 h1 Новый билет
-=form_for(@ticket) do |f|
-  =render 'common/errors', resource: @ticket
-  .field
-  = f.hidden_field :train_id, :value => @train.id
-  = f.label 'Фио'
-  = f.text_field :credentials
-  .field
-  = f.label 'Номер паспорта'
-  = f.text_field :passport_number
-  .field
-  = f.submit 'Купить'
+
+= render partial: "form", locals: { ticket: @ticket, train: @train, departure_station: @departure_station, destination_station: @destination_station}
 
 =<> link_to 'В начало', welcome_index_path  
 ||  

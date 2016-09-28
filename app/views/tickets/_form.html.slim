@@ -1,0 +1,19 @@
+=form_for(ticket) do |f|
+  =render 'common/errors', resource: @ticket
+  table
+    tr
+      td
+        = f.label 'Пользователь'
+        = f.collection_select :user_id, User.all, :id, :user_name
+      
+  .field
+    = f.hidden_field :train_id, :value => params[:train_id]
+    = f.hidden_field :departure_station_id, :value => params[:departure_station_id]
+    = f.hidden_field :destination_station_id, :value => params[:destination_station_id]
+    = f.label 'Фио'
+    = f.text_field :credentials
+  .field
+    = f.label 'Номер паспорта'
+    = f.text_field :passport_number
+  .field
+    = f.submit 'Купить'

@@ -1,0 +1,24 @@
+p#notice = notice
+h1 
+  |Билет 
+  ="№#{@ticket.id}"
+table
+  thead
+  tr
+    th Пользователь
+    th Куплен на имя (ФИО)
+    th Номер паспорта
+    th Поезд
+  tr 
+    td 
+      = @ticket.user.user_name
+    td 
+      = @ticket.credentials
+    td 
+      = @ticket.passport_number
+    td 
+      = link_to @ticket.train.number, train_path(@ticket.train)
+
+=<> link_to 'К списку билетов', tickets_path
+||
+=<> link_to 'В начало', welcome_index_path
