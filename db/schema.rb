@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927175947) do
-
+ActiveRecord::Schema.define(version: 20_160_927_175_947) do
   create_table "carriages", force: :cascade do |t|
     t.integer  "top_seats"
     t.integer  "bottom_seats"
@@ -76,5 +75,4 @@ ActiveRecord::Schema.define(version: 20160927175947) do
   create_table "users", force: :cascade do |t|
     t.string "user_name"
   end
-
 end

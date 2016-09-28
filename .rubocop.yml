@@ -1,0 +1,8 @@
+Style/StringLiterals: 
+  Enabled: false
+  
+Metrics/LineLength:
+  Max: 90
+  
+Documentation:
+  Enabled: false

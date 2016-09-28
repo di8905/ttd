@@ -43,12 +43,12 @@ class RailwayStationsController < ApplicationController
     @railway_station.update_position(@route, params[:position])
     redirect_to @route
   end
-  
+
   def set_departure
     @railway_station.set_departure(@route, @time)
     redirect_to @route
   end
-  
+
   def set_arrival
     @railway_station.set_arrival(@route, @time)
     redirect_to @route
@@ -62,11 +62,11 @@ class RailwayStationsController < ApplicationController
   end
 
   private
-  
+
   def get_time_value
     @time = "#{params[:date][:hour]}:#{params[:date][:minute]}"
   end
-  
+
   def set_route
     @route = Route.find(params[:route_id])
   end

@@ -54,7 +54,7 @@ class CarriagesController < ApplicationController
   def set_carriage
     @carriage = Carriage.find(params[:id])
   end
-  
+
   def set_train
     @train = Train.find(params[:train_id])
   end

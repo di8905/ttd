@@ -17,28 +17,28 @@ class RailwayStation < ActiveRecord::Base
   def show_position(route)
     station_route(route).try(:position)
   end
-  
+
   def arrival(route)
     station_route(route).try(:arrival)
   end
-  
+
   def set_arrival(route, time)
     station_route = station_route(route)
     station_route.update(arrival: time) if station_route
   end
-  
+
   def departure(route)
     station_route(route).try(:departure)
   end
-  
+
   def set_departure(route, time)
     station_route = station_route(route)
     station_route.update(departure: time) if station_route
   end
-  
+
   private
-  
+
   def station_route(route)
     @station_route ||= railway_stations_routes.where(route_id: route).first
-  end  
+  end
 end
