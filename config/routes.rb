@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     patch :set_arrival, on: :member
   end
   resources :routes
-  resources :tickets
+  resources :tickets   
   
   resource :ticket_search, only: [:new, :show, :edit]
   

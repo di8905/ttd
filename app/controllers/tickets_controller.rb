@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :destroy]
+  before_action :set_related_params, only: [:new, :create]
   
   def index
     @tickets = Ticket.all
@@ -15,7 +16,6 @@ class TicketsController < ApplicationController
       if @ticket.save
         format.html { redirect_to ticket_path(@ticket), notice: "Билет куплен" }
       else
-        set_related_params
         format.html { render 'new' }
       end
     end
@@ -38,9 +38,9 @@ class TicketsController < ApplicationController
   end
   
   def set_related_params
-    @train = params[:ticket][:train_id]
-    @departure_station = params[:ticket][:departure_station]
-    @destination_station = params[:ticket][:destination_station]
+    @train = Train.find(params[:ticket][:train_id])
+    @departure_station = RailwayStation.find(params[:ticket][:departure_station_id])
+    @destination_station = RailwayStation.find(params[:ticket][:destination_station_id])
   end
   
   def ticket_params

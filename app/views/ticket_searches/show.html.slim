@@ -29,9 +29,9 @@ br
         td = @destination_station.arrival(train.route) ? @destination_station.arrival(train.route).strftime("%H:%M") : "не указано"
         td 
           = form_tag new_ticket_path, method: :get
-          = hidden_field_tag :train_id, train.id
-          = hidden_field_tag :departure_station_id, @departure_station.id
-          = hidden_field_tag :destination_station_id, @destination_station.id
+          = hidden_field_tag 'ticket[train_id]', train.id
+          = hidden_field_tag 'ticket[departure_station_id]', @departure_station.id
+          = hidden_field_tag 'ticket[destination_station_id]', @destination_station.id
           = submit_tag 'Купить билет'
 =< link_to 'В начало', welcome_index_path
   
