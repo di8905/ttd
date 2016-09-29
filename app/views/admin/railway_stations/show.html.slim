@@ -1,0 +1,17 @@
+p
+  strong Название: 
+  = @railway_station.title
+
+
+- if @railway_station.trains.present?
+  ul
+    strong Поезда на станции: 
+    - @railway_station.trains.each do |train|
+        li
+          = link_to train.number, [:admin, train]
+- else
+  p На станции нет поездов
+p
+  = link_to 'Редактировать', admin_edit_railway_station_path(@railway_station)
+  |  |  
+  = link_to 'В начало', welcome_index_path

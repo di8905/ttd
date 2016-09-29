@@ -1,0 +1,10 @@
+<p><strong> Вагон номер: </strong> <%= @carriage.id %> </p>
+<p><strong> Тип: </strong> <%= @carriage.type_name %> </p>
+<p><strong> Присоединен к поезду: </strong> <%= @carriage.train ? link_to(@carriage.train.number, [:admin, @carriage.train]) : "Не назначен" %> </p>
+  <% if @carriage.type %>
+  <%= render "#{@carriage.type.underscore}_seats" %>
+  <% else %>
+  <% render @carriage %>
+ <% end %>
+<%= link_to 'Редактировать', edit_admin_carriage_path(@carriage) %> |
+<%= link_to 'К поезду', [:admin, @carriage.train] %> 

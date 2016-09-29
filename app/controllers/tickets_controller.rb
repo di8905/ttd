@@ -11,7 +11,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = current_user.tickets.new(ticket_params)
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to ticket_path(@ticket), notice: "Билет куплен" }

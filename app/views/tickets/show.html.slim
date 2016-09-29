@@ -16,7 +16,7 @@ table
     td 
       = @ticket.passport_number
     td 
-      = link_to @ticket.train.number, train_path(@ticket.train)
+      = link_to @ticket.train.number, admin_train_path(@ticket.train)
 
 =<> link_to 'К списку билетов', tickets_path
 ||

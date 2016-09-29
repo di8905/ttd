@@ -23,7 +23,7 @@ br
           strong Время прибытия на конечную станцию
     - @trains.each do |train|  
       tr
-        td = link_to train.number, train_path(train)
+        td = link_to train.number, admin_train_path(train)
         td = @departure_station.departure(train.route) ? @departure_station.departure(train.route).strftime("%H:%M") : "не указано"
         td = @destination_station.arrival(train.route) ? @destination_station.arrival(train.route).strftime("%H:%M") : "не указано"
         td 

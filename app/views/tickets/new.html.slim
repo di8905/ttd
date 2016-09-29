@@ -1,20 +1,18 @@
 h1 Новый билет
+strong Пользователь:
+=<> current_user.user_name
+br
 strong Поезд
-=<> link_to @train.number, @train
+=<> link_to @train.number, [:admin, @train]
 br
 strong Начальная станция 
-=<> link_to @departure_station.title, @departure_station
+=<> link_to @departure_station.title, [:admin, @departure_station]
 br
 strong Конечная станция
-=<> link_to @destination_station.title, @destination_station
+=<> link_to @destination_station.title, [:admin, @destination_station]
 =form_for(@ticket) do |f|
   =render 'common/errors', resource: @ticket
-  table
-    tr
-      td
-        = f.label 'Пользователь'
-        = f.collection_select :user_id, User.all, :id, :user_name
-      
+        
   .field
     = f.hidden_field :train_id, :value => @train.id
     = f.hidden_field :departure_station_id, :value => @departure_station.id

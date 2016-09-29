@@ -1,0 +1,38 @@
+p
+  strong Номер: 
+  =< @train.number
+p
+  strong Маршрут:
+  =< link_to @train.route.name, admin_route_path(@train.route)
+p
+  -if @train.carriages.present?
+    strong Список вагонов поезда
+    table
+      thead
+      tr
+        th Номер
+        th Тип 
+        th colspan="3"
+      - @train.carriages.each do |carriage|
+        tr
+          td
+            = link_to "Вагон №#{carriage.number}", admin_carriage_path(carriage)
+          td
+            = link_to carriage.type_name, admin_carriage_path(carriage)
+          td
+            = link_to 'Показать', admin_carriage_path(carriage)
+          td 
+            =link_to 'Редактировать', edit_admin_carriage_path(carriage)  
+          td 
+            = link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: "Вы уверены?"}  
+p
+ = link_to 'Добавить вагон', new_admin_train_carriage_path(@train)
+
+=> link_to 'Редактировать', edit_admin_train_path(@train)
+|
+  |
+=<> link_to 'Назад', admin_trains_path
+|
+  |
+
+=< link_to 'В начало', welcome_index_path
