@@ -5,3 +5,11 @@ ul.main_menu li {
   display: inline;
   margin: 5px 10px 5px 10px
 }
+
+p.alert {
+  color: red;
+}
+
+p.notice {
+  color: green;
+}
