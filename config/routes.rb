@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/index'
 
   # post 'update_position/:id', to: 'railway_stations#update_position', as: 'update_position'

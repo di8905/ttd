@@ -9,7 +9,10 @@
   </head>
 
   <body>
-    <p id="notice"> <%= notice %> </p>
+    <p class="notice"> <%= notice %> </p>
+    <p class="alert"> <%= alert %> </p>
+    <%= render partial: 'layouts/main_menu' %>
+    
     <%= yield %>
     <div style = "height: 3em"> </div>
     <footer> &copy 2016 Павлов Денис. Учебный проект в онлайн школе <a href="http://thinknetica.com/">Thinknetica</a> </footer>
