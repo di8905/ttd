@@ -1,0 +1,30 @@
+h1 Новый билет
+strong Пользователь:
+=<> current_user.user_name
+br
+strong Поезд
+=<> link_to @train.number, [:admin, @train]
+br
+strong Начальная станция 
+=<> link_to @departure_station.title, [:admin, @departure_station]
+br
+strong Конечная станция
+=<> link_to @destination_station.title, [:admin, @destination_station]
+=form_for(@ticket) do |f|
+  =render 'common/errors', resource: @ticket
+        
+  .field
+    = f.hidden_field :train_id, :value => @train.id
+    = f.hidden_field :departure_station_id, :value => @departure_station.id
+    = f.hidden_field :destination_station_id, :value => @destination_station.id
+    = f.label 'Фио'
+    = f.text_field :credentials
+  .field
+    = f.label 'Номер паспорта'
+    = f.text_field :passport_number
+  .field
+    = f.submit 'Купить'
+
+=<> link_to 'В начало', welcome_index_path  
+||  
+=<> link_to 'Назад', ticket_search_path

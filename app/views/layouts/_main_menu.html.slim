@@ -3,4 +3,4 @@ ul.main_menu
  li = link_to 'Список маршрутов', admin_routes_path
  li = link_to 'Список поездов', admin_trains_path
  li = link_to 'Поиск билетов', ticket_search_path
- li = link_to 'Список билетов', tickets_path
+ li = link_to 'Список билетов', current_user.try(:admin?) ? admin_tickets_path : tickets_path
