@@ -2,7 +2,7 @@ tr
   td
     = link_to "#{ticket.id}", ticket_url(ticket)
   td  
-    = ticket.user ? ticket.user.user_name : "Пользователь не задан"
+    = ticket.credentials ? ticket.credentials : "Не указано"
   td 
     = link_to "Показать", ticket_url(ticket)  
   td

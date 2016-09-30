@@ -1,4 +1,4 @@
-class Admin::TrainsController < ApplicationController
+class Admin::TrainsController < Admin::BaseController
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   def index
