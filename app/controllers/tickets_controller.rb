@@ -1,9 +1,10 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :destroy]
   before_action :set_related_params, only: [:new, :create]
 
   def index
-    @tickets = Ticket.all
+    @tickets = current_user.tickets
   end
 
   def new
