@@ -1,0 +1,26 @@
+=form_for [:admin, ticket] do |f|
+  =render 'common/errors', resource: @ticket
+  
+  .field
+    =f.label :user_name
+    =f.collection_select :user_id, User.all, :id, :user_name
+  
+  .field 
+    =f.label :train
+    =f.collection_select :train_id, Train.all, :id, :number
+    
+  .field 
+    =f.label :departure_station
+    =f.collection_select :departure_station_id, RailwayStation.all, :id, :title
+    
+  .field 
+    =f.label :destination_station
+    =f.collection_select :destination_station_id, RailwayStation.all, :id, :title     
+  .field
+    = f.label 'Фио'
+    = f.text_field :credentials
+  .field
+    = f.label 'Номер паспорта'
+    = f.text_field :passport_number
+  .field
+    = f.submit "#{ticket.new_record? ? 'Создать' : 'Изменить'}"

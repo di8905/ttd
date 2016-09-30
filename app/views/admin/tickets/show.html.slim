@@ -17,7 +17,8 @@ table
       = @ticket.passport_number
     td 
       = link_to @ticket.train.number, admin_train_path(@ticket.train)
-
+=<> link_to 'Редактировать билет', edit_admin_ticket_path(@ticket)
+||
 =<> link_to 'К списку билетов', tickets_path
 ||
 =<> link_to 'В начало', welcome_index_path

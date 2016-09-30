@@ -1,12 +1,12 @@
 tr
   td
-    = link_to "#{ticket.id}", ticket_url(ticket)
+    = link_to "#{ticket.id}", admin_ticket_url(ticket)
   td  
     = ticket.credentials ? ticket.credentials : "Не указано"
   td 
     = ticket.user ? ticket.user.user_name : "Не указано"
   td 
-    = link_to "Показать", ticket_url(ticket)  
+    = link_to "Показать", admin_ticket_url(ticket)  
   td
     = link_to "Редактировать", edit_admin_ticket_url(ticket)    
   td
