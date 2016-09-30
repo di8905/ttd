@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929122842) do
-
+ActiveRecord::Schema.define(version: 20_160_929_122_842) do
   create_table "carriages", force: :cascade do |t|
     t.integer  "top_seats"
     t.integer  "bottom_seats"
@@ -84,9 +83,8 @@ ActiveRecord::Schema.define(version: 20160929122842) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end

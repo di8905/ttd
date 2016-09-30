@@ -53,7 +53,7 @@ class Admin::TicketsController < Admin::BaseController
   def ticket_params
     params.require(:ticket).permit(:user_id, :train_id, :credentials, :passport_number, :departure_station_id, :destination_station_id)
   end
-  
+
   def set_user
     @user = User.find(params[:user_id])
   end

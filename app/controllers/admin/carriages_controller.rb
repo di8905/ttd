@@ -12,7 +12,6 @@ class Admin::CarriagesController < Admin::BaseController
 
   def create
     if Carriage::ALLOWED_TYPES.include?(params[:carriage][:type])
-      carriage_type = params[:carriage][:type].constantize
       @carriage = @train.carriages.new(carriage_params)
       respond_to do |format|
         if @carriage.save
@@ -45,7 +44,7 @@ class Admin::CarriagesController < Admin::BaseController
   def destroy
     @carriage.destroy
     respond_to do |format|
-      format.html { redirect_to [:admin,@carriage.train], notice: 'Вагон успешно удален' }
+      format.html { redirect_to [:admin, @carriage.train], notice: 'Вагон успешно удален' }
     end
   end
 

@@ -4,8 +4,6 @@ class TicketSearch < ApplicationRecord
     Train.where(route: routes)
   end
 
-  private
-
   def self.routes_find(station)
     Route.joins(:railway_stations).where("railway_stations.id = ?", station)
   end
