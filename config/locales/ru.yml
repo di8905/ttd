@@ -6,6 +6,7 @@ ru:
     delete: "Удалить"
     shure_alert: "Вы уверены?"
     to_homepage: "В начало"
+    save: "Сохранить"
   admin:
     railway_stations:
       new:
@@ -23,4 +24,18 @@ ru:
       index: 
         title: "Список поездов"
         add_train: "Новый поезд" 
-          
+    routes:
+      form: 
+        select_route_stations: "Выберите станции входящие в маршрут"  
+        submit: "%{action} маршрут"  
+      edit:
+        title: "Изменить маршрут"
+      index: 
+        title: "Список маршрутов"
+        add_route: "Новый маршрут"
+      new: 
+        title: "Новый маршрут"    
+      show:
+        route_stations_list: "Список станци маршрута"
+        empty_stations_list: "Маршрут не содержит станций" 
+        route_trains_list: "Список поездов на маршруте"   

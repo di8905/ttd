@@ -1,16 +1,19 @@
 p 
-  strong Название маршрута: 
-  = @route.name
+  strong 
+    =t('activerecord.attributes.route.name') 
+    |:
+  =< @route.name
 p  
   - if @route.railway_stations.present?
-    strong Список станций маршрута:
+    strong 
+      = t('.route_stations_list')
     table
       thead
       tr
-        th Название
-        th Позиция
-        th Время отправления
-        th Время прибытия
+        th = t('activerecord.attributes.railway_station.title')
+        th = t('activerecord.attributes.railway_station.position')
+        th = t('activerecord.attributes.railway_station.departure_time')
+        th = t('activerecord.attributes.railway_station.arrival_time')
       - @route.railway_stations.ordered.each do |station|
         tr
           td
@@ -19,37 +22,38 @@ p
             = form_tag update_position_admin_railway_station_path(station), method: :patch do
               = text_field_tag :position, station.show_position(@route), size: 2
               = hidden_field_tag :route_id, @route.id
-              = submit_tag "Сохранить"
+              = submit_tag t('common.save')
           td
             = form_tag set_departure_admin_railway_station_path(station), method: :patch do
               => select_time(station.departure(@route))
               = hidden_field_tag :route_id, @route.id
-              => submit_tag 'Сохранить'
+              => submit_tag = submit_tag t('common.save')
           td 
             = form_tag set_arrival_admin_railway_station_path(station), method: :patch do
               => select_time(station.arrival(@route))
               = hidden_field_tag :route_id, @route.id
-              => submit_tag 'Сохранить'
+              => submit_tag = submit_tag t('common.save')
   - else
-    = strong Станци на маршруте нет
+      strong
+        =<> t('.empty_stations_list') 
 - if @route.trains.present?    
   p 
-    strong Список поездов на маршруте:
+    strong 
+      = t('.route_trains_list')
     table
       thead
       tr
-        th Номер
-        th Количество вагонов
+        th 
+          = t('activerecord.attributes.train.number')
       - @route.trains.each do |train|
         tr
           td 
             = link_to train.number, admin_train_path(train)
-          td 
-            = train.carriages.length
-=> link_to 'Редактировать', edit_admin_route_path(@route)
+
+=> link_to t('common.edit'), edit_admin_route_path(@route)
 |
  |
-=<> link_to 'Назад', admin_routes_path
+=<> link_to t('common.back'), admin_routes_path
 |
  |
-=< link_to 'В начало', welcome_index_path
+=< link_to t('common.to_homepage'), welcome_index_path
