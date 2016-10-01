@@ -1,0 +1,58 @@
+ru:
+  activerecord:
+    models:
+      railway_station: "Станция"
+      train: "Поезд"
+      coupe_carriage: "Купейный вагон"
+      carriage: "Вагон"
+      economy_carriage: "Плацкартный вагон"
+      route: "Маршрут"
+      seat_carriage: "Сидячий вагон"
+      sv_carriage: "Вагон СВ"
+      ticket_search: "Поиск билетов"
+      ticket: "Билет"
+      user: "Пользователь" 
+    attributes:
+      railway_station:
+        title: "Название"
+      train: 
+        number: "Номер"
+        current_station: "Текущая станция"
+        route: "Маршрут"
+        carriage_sort_order: "Нумерация с головы поезда"
+      carriage:
+        top_seats: "Верхние места"
+        bottom_seats: "Нижние места"
+        type: "Тип"
+        side_top_seats: "Верхние боковые места"
+        side_bottom_seats: "Нижние боковые места"
+        seats: "Сидячие места"
+        nuber: "Номер"           
+      route: 
+        name: "Название"   
+      ticket:
+        user_name: "Пользователь"
+        train: "Поезд" 
+        departure_station: "Начальная станция"
+        destination_station: "Конечная станция"
+        credentials: "ФИО"  
+        passport_number: "Номер паспорта"    
+    errors:
+      messages:
+        blank: "не может быть пустым"    
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "станции должно быть указано"
+        train:
+          attributes:
+            number:
+              blank: "поезда пустым быть не может"
+        coupe_carriage:
+          attributes:
+            bottom_seats:
+              blank: ": необходимо указать количество"
+            top_seats: 
+              blank: ": необходимо указать количество"
+          
