@@ -6,4 +6,4 @@ tr
   td
     = link_to t('common.edit'), edit_admin_route_path(route)
   td
-    = link_to t('common.delete'), [:admin, route], method: :delete, data: { confirm: 'Вы уверенны?' }
+    = link_to t('common.delete'), [:admin, route], method: :delete, data: { confirm: t('commmon.shure_alert') }
