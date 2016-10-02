@@ -1,5 +1,7 @@
 ru:
   common:
+    create: "Создать"
+    update: "Изменить"
     not_defined: "Не назначен"
     back: "Назад"
     show: "Показать"
@@ -14,8 +16,9 @@ ru:
     railway_stations:
       new:
         title: "Создание железнодорожной станции"
+        submit_button: "%{action} станцию"
       form: 
-        submit: "%{action} станцию"
+        submit_button: "%{action} станцию"
     trains:
       new:
         title: "Создание поезда"
@@ -54,4 +57,12 @@ ru:
         title: "Создание вагона"
       show: 
         title: "Вагон номер:"
-        linked_to: "Присоединен к поезду:"       
+        linked_to: "Присоединен к поезду:" 
+    railway_stations:
+      edit:
+        title: "Редактирование ж/д станции" 
+      index: 
+        title: "Список станций"
+        add_station: "Новая станция"           
+      new:
+        title: "Создание ж/д станции"  
