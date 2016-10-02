@@ -4,10 +4,14 @@ h1
 table
   thead
   tr
-    th Пользователь
-    th Куплен на имя (ФИО)
-    th Номер паспорта
-    th Поезд
+    th 
+      = t('activerecord.attributes.ticket.user_name')
+    th 
+      = t('activerecord.attributes.ticket.credentials')
+    th 
+      = t('activerecord.attributes.ticket.passport_number')
+    th 
+      = t('activerecord.attributes.ticket.train')
   tr 
     td 
       = @ticket.user.user_name
@@ -16,9 +20,13 @@ table
     td 
       = @ticket.passport_number
     td 
-      = link_to @ticket.train.number, admin_train_path(@ticket.train)
-=<> link_to 'Редактировать билет', edit_admin_ticket_path(@ticket)
+      - if @ticket.train
+        = link_to @ticket.train.number, admin_train_path(@ticket.train)
+      -else
+        = t('common.not_defined')
+        
+=<> link_to t('.edit_ticket'), edit_admin_ticket_path(@ticket)
 ||
-=<> link_to 'К списку билетов', tickets_path
+=<> link_to t('.tickets_list'), admin_tickets_path
 ||
-=<> link_to 'В начало', welcome_index_path
+=<> link_to t('common.to_homepage'), welcome_index_path

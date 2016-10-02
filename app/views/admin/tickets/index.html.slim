@@ -1,11 +1,14 @@
 
-h1 Список билетов
+h1
+  = t('.title')
 table
   thead
     tr 
-      th Номер
-      th ФИО
+      th 
+        = t('activerecord.attributes.ticket.number')
+      th 
+        = t('activerecord.attributes.ticket.credentials')
   = render @tickets
-=<> link_to 'Создать билет', new_admin_ticket_path
+=<> link_to t('.add_ticket'), new_admin_ticket_path
 ||
-=<> link_to 'В начало', welcome_index_path  
+=<> link_to t('common.to_homepage'), welcome_index_path  

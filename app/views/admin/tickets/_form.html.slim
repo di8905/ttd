@@ -17,10 +17,10 @@
     =f.label :destination_station
     =f.collection_select :destination_station_id, RailwayStation.all, :id, :title     
   .field
-    = f.label 'Фио'
+    = f.label :credentials
     = f.text_field :credentials
   .field
-    = f.label 'Номер паспорта'
+    = f.label :passport_number
     = f.text_field :passport_number
   .field
-    = f.submit "#{ticket.new_record? ? 'Создать' : 'Изменить'}"
+    = f.submit "#{ticket.new_record? ? t('common.create') : t('common.update')}"

@@ -3,6 +3,7 @@ ru:
     create: "Создать"
     update: "Изменить"
     not_defined: "Не назначен"
+    unspecified: "Не указано"
     back: "Назад"
     show: "Показать"
     edit: "Редактировать"
@@ -66,3 +67,12 @@ ru:
         add_station: "Новая станция"           
       new:
         title: "Создание ж/д станции"  
+    tickets:
+      index: 
+        title: "Список билетов" 
+        add_ticket: "Создать билет"
+      edit: 
+        tickets_list: "К списку билетов"   
+      show:   
+        edit_ticket: "Редактировать билет" 
+        tickets_list: "К списку билетов"

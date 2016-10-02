@@ -1,6 +1,6 @@
 
 = render 'form', ticket: @ticket
 
-=<> link_to 'В начало', welcome_index_path  
+=<> link_to t('common.to_homepage'), welcome_index_path  
 ||  
-=<> link_to 'Назад', ticket_search_path
+=<> link_to t('.tickets_list'), admin_tickets_path

@@ -2,12 +2,12 @@ tr
   td
     = link_to "#{ticket.id}", admin_ticket_url(ticket)
   td  
-    = ticket.credentials ? ticket.credentials : "Не указано"
+    = ticket.credentials ? ticket.credentials : t('common.unspecified')
   td 
-    = ticket.user ? ticket.user.user_name : "Не указано"
+    = ticket.user ? ticket.user.user_name : t('common.unspecified')
   td 
-    = link_to "Показать", admin_ticket_url(ticket)  
+    = link_to t('common.show'), admin_ticket_url(ticket)  
   td
-    = link_to "Редактировать", edit_admin_ticket_url(ticket)    
+    = link_to t('common.edit'), edit_admin_ticket_url(ticket)    
   td
-    = link_to "Удалить", admin_ticket_url(ticket), method: :delete, data: { confirm: "Вы уверены?" }
+    = link_to t('common.delete'), admin_ticket_url(ticket), method: :delete, data: { confirm: t('common.shure_alert') }

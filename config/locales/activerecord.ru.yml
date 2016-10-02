@@ -39,7 +39,8 @@ ru:
         departure_station: "Начальная станция"
         destination_station: "Конечная станция"
         credentials: "ФИО"  
-        passport_number: "Номер паспорта"    
+        passport_number: "Номер паспорта"
+        number: "Номер"    
     errors:
       messages:
         blank: "не может быть пустым"    
