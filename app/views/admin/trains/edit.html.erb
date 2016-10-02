@@ -1,7 +1,0 @@
-<h1> <%= t('.title') %> </h1>
-
-<%= render 'form', train: @train %>
-
-<%= link_to t('.add_wagon'), new_admin_train_carriage_path(@train) %> |
-<%= link_to t('common.show'), [:admin, @train] %> |
-<%= link_to t('common.back'), admin_trains_path %>

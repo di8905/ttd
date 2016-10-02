@@ -1,0 +1,16 @@
+= form_for([:admin, train]) do |f|
+  = render 'common/errors', resource: @train
+  .field
+    = f.label :number
+    = f.text_field :number
+  .field
+    = f.label :current_station
+    = f.collection_select :current_station_id, RailwayStation.all, :id, :title
+  .field
+    = f.label :current_station
+    = f.collection_select :route_id, Route.all, :id, :name
+  .actions
+    = f.submit t('.submit', action: train.new_record? ? "Создать" : "Изменить")
+  .field
+    = f.label :carriage_sort_order
+    = f.check_box :carriage_sort_order

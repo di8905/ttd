@@ -1,0 +1,7 @@
+= form_for(railway_station) do |f|
+  = render 'common/errors', resource: @railway_station
+  .field
+    = f.label :title
+    = f.text_field :title
+  .actions
+    = f.submit t('.submit', action: @railway_station.new_record? ? "Создать" : "Изменить")

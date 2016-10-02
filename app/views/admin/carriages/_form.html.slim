@@ -1,0 +1,26 @@
+= form_for [:admin, @train, carriage.becomes(Carriage)] do |f|
+  = render 'common/errors', resource: @carriage
+  - f.object = carriage
+  .field
+    = f.label "Будет присоединен к поезду: #{carriage.train.number}"
+  .field
+    = f.label "Тип вагона"
+    - opt = options_for_select [ ["СВ", :SvCarriage], ["Купе", :CoupeCarriage], ["Плацкарт", :EconomyCarriage], ["Сидячий", :SeatCarriage] ], carriage.type
+    = f.select :type, opt
+  .field
+    = f.label "Верхних мест"
+    = f.text_field :top_seats, size: "7"
+  .field
+    = f.label "Нижних мест"
+    = f.text_field :bottom_seats, size: "7"
+  .field
+    = f.label "Верхних боковых мест"
+    = f.text_field :side_top_seats, size: "7"
+  .field
+    = f.label "Нижних боковых мест"
+    = f.text_field :side_bottom_seats, size: "7"
+  .field
+    = f.label "Сидячих мест"
+    = f.text_field :seats, size: "7"
+  .actions
+    = f.submit "#{@carriage.new_record? ? 'Создать вагон' : 'Изменить вагон'}"

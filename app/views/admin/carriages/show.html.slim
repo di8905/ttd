@@ -1,0 +1,19 @@
+p
+  strong
+    |  Вагон номер: 
+  = @carriage.id
+p
+  strong
+    |  Тип: 
+  = @carriage.type_name
+p
+  strong
+    |  Присоединен к поезду: 
+  = @carriage.train ? link_to(@carriage.train.number, [:admin, @carriage.train]) : "Не назначен"
+- if @carriage.type
+  = render "#{@carriage.type.underscore}_seats"
+- else
+  - render @carriage
+= link_to 'Редактировать', edit_admin_carriage_path(@carriage)
+|  | 
+= link_to 'К поезду', [:admin, @carriage.train]

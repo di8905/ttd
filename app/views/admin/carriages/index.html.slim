@@ -1,0 +1,19 @@
+h1
+  | Список вагонов
+- if @carriages.empty?
+  p
+    | Список вагонов пуст
+- else
+  table
+    thead
+
+  th
+    | Номер
+  th
+    | Тип
+  tbody
+    - @carriages.each do |carriage|
+      = render 'carriage', carriage: carriage
+= link_to 'Создать вагон', new_admin_train_carriage_path
+|  | 
+= link_to 'В начало', welcome_index_path

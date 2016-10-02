@@ -1,0 +1,9 @@
+tr
+  td
+    = train.number
+  td
+    = link_to t('common.show'), [:admin, train]
+  td
+    = link_to t('common.edit'), edit_admin_train_path(train)
+  td
+    = link_to t('common.delete'), [:admin, train], method: :delete, data: { confirm: t('common.shure_alert') }
