@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'slim-rails'
 gem 'devise'
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
