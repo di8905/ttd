@@ -48,7 +48,7 @@ ru:
           attributes:
             title:
               blank: "станции должно быть указано"
-        train:
+        train: 
           attributes:
             number:
               blank: "поезда пустым быть не может"

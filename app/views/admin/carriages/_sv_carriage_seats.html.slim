@@ -1,4 +1,5 @@
 p
   strong
-    |  Нижних мест: 
-  = @carriage.bottom_seats
+    =t('activerecord.attributes.carriage.bottom_seats')
+    |: 
+  =< @carriage.bottom_seats

@@ -1,4 +1,5 @@
 p
   strong
-    |  Сидячих мест: 
-  = @carriage.seats
+    =t('activerecord.attributes.carriage.seats')
+    |: 
+  =< @carriage.seats

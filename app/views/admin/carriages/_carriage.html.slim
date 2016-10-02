@@ -5,8 +5,8 @@ tr
     = carriage.type_name
   - common_carriage = carriage.becomes(Carriage)
   td
-    = link_to 'Показать', [:admin, common_carriage]
+    = link_to t('common.show'), [:admin, common_carriage]
   td
-    = link_to 'Редактировать', edit_admin_carriage_path(common_carriage)
+    = link_to t('common.edit'), edit_admin_carriage_path(common_carriage)
   td
-    = link_to 'Удалить', [:admin, common_carriage], method: :delete, data: {confirm: 'Вы уверены?'}
+    = link_to t('common.delete'), [:admin, common_carriage], method: :delete, data: {confirm: t('shure_alert')}

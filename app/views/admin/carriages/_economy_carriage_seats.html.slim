@@ -1,16 +1,20 @@
 p
   strong
-    |  Верхних мест: 
-  = @carriage.top_seats
+    = t('activerecord.attributes.carriage.top_seats')
+    |: 
+  =< @carriage.top_seats
 p
   strong
-    |  Нижних мест: 
-  = @carriage.bottom_seats
+    = t('activerecord.attributes.carriage.bottom_seats')
+    |: 
+  =< @carriage.bottom_seats
 p
   strong
-    |  Верхних боковых мест: 
-  = @carriage.side_top_seats
+    = t('activerecord.attributes.carriage.side_top_seats')
+    |: 
+  =< @carriage.side_top_seats
 p
   strong
-    |  Нижних боковых мест: 
-  = @carriage.side_bottom_seats
+    = t('activerecord.attributes.carriage.side_bottom_seats')
+    |: 
+  =< @carriage.side_bottom_seats

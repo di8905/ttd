@@ -1,5 +1,6 @@
 ru:
   common:
+    not_defined: "Не назначен"
     back: "Назад"
     show: "Показать"
     edit: "Редактировать"
@@ -7,6 +8,8 @@ ru:
     shure_alert: "Вы уверены?"
     to_homepage: "В начало"
     save: "Сохранить"
+    form_errors: "Возникли ошибки при попоытке сохранения объекта:"
+    retry_prompt: "Повторите отправку формы после исправления ошибок:"
   admin:
     railway_stations:
       new:
@@ -38,4 +41,17 @@ ru:
       show:
         route_stations_list: "Список станци маршрута"
         empty_stations_list: "Маршрут не содержит станций" 
-        route_trains_list: "Список поездов на маршруте"   
+        route_trains_list: "Список поездов на маршруте"
+    carriages: 
+      form:
+        train_link_prompt: "Вагон будет присоединен к поезду:"
+        submit: 
+          create: "Создать вагон"       
+          update: "Изменить вагон"
+      index:
+        carriages_list: "Список вагонов" 
+      new:
+        title: "Создание вагона"
+      show: 
+        title: "Вагон номер:"
+        linked_to: "Присоединен к поезду:"       
