@@ -30,7 +30,7 @@ ru:
         side_top_seats: "Верхние боковые места"
         side_bottom_seats: "Нижние боковые места"
         seats: "Сидячие места"
-        nuber: "Номер"           
+        number: "Номер"           
       route: 
         name: "Название"   
       ticket:

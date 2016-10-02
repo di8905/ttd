@@ -1,39 +1,43 @@
+h1 
+  => t('.title')
+  = @train.number
 p
   strong 
-    = t('activerecord.attributes.train.number') 
-  =< @train.number
-p
-  strong Маршрут:
+    =t('activerecord.models.route')
+    |:
   =< link_to @train.route.name, admin_route_path(@train.route)
 p
   -if @train.carriages.present?
-    strong Список вагонов поезда
+    strong 
+      =t('.car_list')
+      |:
     table
       thead
       tr
-        th Номер
-        th Тип 
+        th 
+          = t('activerecord.attributes.carriage.number')
+        th 
+          = t('activerecord.attributes.carriage.type') 
         th colspan="3"
       - @train.carriages.each do |carriage|
         tr
           td
-            = link_to "Вагон №#{carriage.number}", admin_carriage_path(carriage)
+            = link_to "#{t('activerecord.models.carriage')} №#{carriage.number}", admin_carriage_path(carriage)
           td
             = link_to carriage.type_name, admin_carriage_path(carriage)
           td
-            = link_to 'Показать', admin_carriage_path(carriage)
+            = link_to t('common.show'), admin_carriage_path(carriage)
           td 
-            =link_to 'Редактировать', edit_admin_carriage_path(carriage)  
+            =link_to t('common.edit'), edit_admin_carriage_path(carriage)  
           td 
-            = link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: "Вы уверены?"}  
+            = link_to t('common.delete'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('shure_alert')}  
 p
- = link_to 'Добавить вагон', new_admin_train_carriage_path(@train)
 
-=> link_to 'Редактировать', edit_admin_train_path(@train)
+=> link_to t('common.edit'), edit_admin_train_path(@train)
 |
   |
-=<> link_to 'Назад', admin_trains_path
+=<> link_to t('.trains_list'), admin_trains_path
 |
   |
 
-=< link_to 'В начало', welcome_index_path
+=< link_to t('common.to_homepage'), welcome_index_path

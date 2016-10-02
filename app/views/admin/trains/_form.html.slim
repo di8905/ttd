@@ -9,8 +9,10 @@
   .field
     = f.label :current_station
     = f.collection_select :route_id, Route.all, :id, :name
-  .actions
-    = f.submit t('.submit', action: train.new_record? ? "Создать" : "Изменить")
   .field
     = f.label :carriage_sort_order
-    = f.check_box :carriage_sort_order
+    = f.check_box :carriage_sort_order  
+    
+  .actions
+    = f.submit train.new_record? ? t('common.create') : t('common.update')
+  

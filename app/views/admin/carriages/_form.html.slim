@@ -2,7 +2,7 @@
   = render 'common/errors', resource: @carriage
   - f.object = carriage
   .field
-    = f.label "#{t('.train_link_prompt')}: #{carriage.train.number}"
+    = f.label "#{t('.train_link_prompt')} #{carriage.train.number}"
   .field
     = f.label :type
     - opt = options_for_select [ [t('activerecord.models.sv_carriage'), :SvCarriage], [t('activerecord.models.coupe_carriage'), :CoupeCarriage], [t('activerecord.models.economy_carriage'), :EconomyCarriage], [t('activerecord.models.seat_carriage'), :SeatCarriage] ], carriage.type

@@ -23,14 +23,17 @@ ru:
     trains:
       new:
         title: "Создание поезда"
-      form:
-        submit: "%{action} поезд"   
       edit:
         title: "Редактирование поезда"
-        add_wagon: "Добавить вагон"   
+        add_wagon: "Добавить вагон"
+        trains_list: "Список поездов"   
       index: 
         title: "Список поездов"
         add_train: "Новый поезд" 
+      show: 
+        car_list: "Список вагонов" 
+        trains_list: "Список поездов"
+        title: "Просмотр поезда:" 
     routes:
       form: 
         select_route_stations: "Выберите станции входящие в маршрут"  
