@@ -1,18 +1,16 @@
 h1 Поиск билетов
 = form_tag ticket_search_path, method: :get
   strong Начальная станция: 
-  =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title
+  =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
   strong Конечная станция: 
-  =<> collection_select :destination_station, :id, RailwayStation.all, :id, :title
+  =<> collection_select :destination_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
   br
   = submit_tag 'Искать'
 br
-- if @departure_station && @destination_station
-  | Станции для поиска: 
-  =<> @departure_station.title
-  =<> @destination_station.title
+
 -if @trains
-  table 
+  h2 = t('user.trains_found')
+  table.table.table-hover
     thead
       tr
         th 

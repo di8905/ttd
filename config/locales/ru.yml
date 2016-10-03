@@ -18,7 +18,8 @@ ru:
     retry_prompt: "Повторите отправку формы после исправления ошибок:"
   user:
     tickets_list: "Мои билеты"
-    tickets_search: "Поиск билетов"  
+    tickets_search: "Поиск билетов" 
+    trains_found: "Найдены поезда по вашему запросу:"
   admin:
     home: 
       dashboard:
