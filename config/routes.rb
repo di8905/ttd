@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   namespace :admin do
+    root 'home#dashboard'
+    get '/', to: 'home#dashboard'
     resources :trains do
       resources :carriages, shallow: true
     end
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   resources :tickets
 
   resource :ticket_search, only: [:new, :show, :edit]
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

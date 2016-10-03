@@ -28,23 +28,25 @@ html lang="en"
           a.navbar-brand href="#"Ttd
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+              -if user_signed_in?
+                -if current_user.admin?
+                  li = link_to t('common.admin'), admin_path
+                  li = link_to t('admin.home.dashboard.trains_list'), admin_trains_path
+                  li = link_to t('admin.home.dashboard.railway_stations_list'), admin_railway_stations_path
+                  li = link_to t('admin.home.dashboard.routes_list'), admin_routes_path
+                  li = link_to t('admin.home.dashboard.tickets_list'), admin_tickets_path
+                li = link_to t('user.tickets_list'), tickets_path
+                li = link_to t('user.tickets_search'), ticket_search_path
+                li = link_to t('common.exit'), destroy_user_session_path, method: :delete
+              -else
+                li= link_to t('common.sign_in'), new_user_session_path  
+              
 
     .container
       .row
-        .col-lg-9
+        .col-lg-12
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            h3 Sidebar
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
 
       footer
         p &copy; Company 2016

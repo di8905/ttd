@@ -1,5 +1,8 @@
 ru:
   common:
+    admin: "Админка"
+    sign_in: "Войти"
+    exit: "Выйти"
     create: "Создать"
     update: "Изменить"
     not_defined: "Не назначен"
@@ -13,7 +16,17 @@ ru:
     save: "Сохранить"
     form_errors: "Возникли ошибки при попоытке сохранения объекта:"
     retry_prompt: "Повторите отправку формы после исправления ошибок:"
+  user:
+    tickets_list: "Мои билеты"
+    tickets_search: "Поиск билетов"  
   admin:
+    home: 
+      dashboard:
+        title: "Админ панель"
+        railway_stations_list: "Список ж/д станций"
+        trains_list: "Список поезов"
+        routes_list: "Список маршрутов"
+        tickets_list: "Список билетов"
     railway_stations:
       new:
         title: "Создание железнодорожной станции"
