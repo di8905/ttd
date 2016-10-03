@@ -49,6 +49,10 @@ ru:
         trains_list: "Список поездов"
         title: "Просмотр поезда:" 
     routes:
+      notice: 
+        created: "Маршрут создан"
+        updated: "Маршрут отредактирован"
+        deleted: "Маршрут удален"
       form: 
         select_route_stations: "Выберите станции входящие в маршрут"  
         submit: "%{action} маршрут"  
@@ -60,7 +64,7 @@ ru:
       new: 
         title: "Новый маршрут"    
       show:
-        route_stations_list: "Список станци маршрута"
+        route_stations_list: "Список станций маршрута"
         empty_stations_list: "Маршрут не содержит станций" 
         route_trains_list: "Список поездов на маршруте"
     carriages: 

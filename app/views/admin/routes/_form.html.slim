@@ -1,10 +1,10 @@
 = form_for([:admin, @route]) do |f|
   = render 'common/errors', resource: @route
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, class: "form-control"
+  .form-group
     = f.label :railway_station_ids, t('.select_route_stations')
-    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true}
-  .actions
+    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true, class: "form-control"}
+  .form-group
     = f.submit @route.new_record? ? t('common.create') : t('common.update') 

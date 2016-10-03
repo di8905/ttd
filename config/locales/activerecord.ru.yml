@@ -15,7 +15,7 @@ ru:
     attributes:
       railway_station:
         title: "Название"
-        positin: "Очередность следования"
+        position: "Очередность следования"
         departure_time: "Время отпраления"
         arrival_time: "Время прибытия"  
       train: 

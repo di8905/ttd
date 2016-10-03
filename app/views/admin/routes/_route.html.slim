@@ -2,8 +2,8 @@ tr
   td
     = route.name
   td
-    = link_to t('common.show'), [:admin, route]
+    = link_to t('common.show'), [:admin, route], class: "btn btn-default"
   td
-    = link_to t('common.edit'), edit_admin_route_path(route)
+    = link_to t('common.edit'), edit_admin_route_path(route), class: "btn btn-default"
   td
-    = link_to t('common.delete'), [:admin, route], method: :delete, data: { confirm: t('commmon.shure_alert') }
+    = link_to t('common.delete'), [:admin, route], method: :delete, data: { confirm: t('commmon.shure_alert') }, class: "btn btn-danger"

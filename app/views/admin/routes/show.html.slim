@@ -1,54 +1,64 @@
-p 
-  strong 
-    =t('activerecord.attributes.route.name') 
-    |:
-  =< @route.name
-p  
+
+h1 Просмотр маршрута
+table.table.table-bordered.aliceblue
+  tr
+    td 
+      strong 
+        =t('activerecord.attributes.route.name') 
+        |:
+      =< @route.name
   - if @route.railway_stations.present?
-    strong 
-      = t('.route_stations_list')
-    table
-      thead
-      tr
-        th = t('activerecord.attributes.railway_station.title')
-        th = t('activerecord.attributes.railway_station.position')
-        th = t('activerecord.attributes.railway_station.departure_time')
-        th = t('activerecord.attributes.railway_station.arrival_time')
-      - @route.railway_stations.ordered.each do |station|
-        tr
-          td
-            = station.title
-          td
-            = form_tag update_position_admin_railway_station_path(station), method: :patch do
-              = text_field_tag :position, station.show_position(@route), size: 2
-              = hidden_field_tag :route_id, @route.id
-              = submit_tag t('common.save')
-          td
-            = form_tag set_departure_admin_railway_station_path(station), method: :patch do
-              => select_time(station.departure(@route))
-              = hidden_field_tag :route_id, @route.id
-              => submit_tag = submit_tag t('common.save')
-          td 
-            = form_tag set_arrival_admin_railway_station_path(station), method: :patch do
-              => select_time(station.arrival(@route))
-              = hidden_field_tag :route_id, @route.id
-              => submit_tag = submit_tag t('common.save')
-  - else
-      strong
-        =<> t('.empty_stations_list') 
-- if @route.trains.present?    
-  p 
-    strong 
-      = t('.route_trains_list')
-    table
-      thead
-      tr
-        th 
-          = t('activerecord.attributes.train.number')
-      - @route.trains.each do |train|
-        tr
-          td 
-            = link_to train.number, admin_train_path(train)
+    tr
+      td        
+          strong 
+            = t('.route_stations_list')
+          br  
+          br
+          table.table.table-hover
+            thead
+            tr
+              th = t('activerecord.attributes.railway_station.title')
+              th = t('activerecord.attributes.railway_station.position')
+              th = t('activerecord.attributes.railway_station.departure_time')
+              th = t('activerecord.attributes.railway_station.arrival_time')
+            - @route.railway_stations.ordered.each do |station|
+              tr
+                td
+                  = station.title
+                td
+                  = form_tag update_position_admin_railway_station_path(station), method: :patch, class: "form-inline" do
+                    = text_field_tag :position, station.show_position(@route), size: 2, class: "form-control"
+                    = hidden_field_tag :route_id, @route.id
+                    = submit_tag t('common.save'), class: "btn btn-default"
+                td
+                  = form_tag set_departure_admin_railway_station_path(station), method: :patch, class: "form-inline" do
+                    => select_time(station.departure(@route), {}, class: "form-control")
+                    = hidden_field_tag :route_id, @route.id
+                    => submit_tag = submit_tag t('common.save'), class: "btn btn-default"
+                td 
+                  = form_tag set_arrival_admin_railway_station_path(station), method: :patch, class: "form-inline" do
+                    => select_time(station.arrival(@route), {}, class: "form-control")
+                    = hidden_field_tag :route_id, @route.id
+                    => submit_tag = submit_tag t('common.save'), class: "btn btn-default"
+
+  - if @route.trains.present?    
+    tr 
+      td
+        strong 
+          = t('.route_trains_list')
+        table.table.table-hover
+          thead
+          tr
+            th 
+              = t('activerecord.attributes.train.number')
+            th 
+              = t('activerecord.attributes.train.current_station')  
+          - @route.trains.each do |train|
+            tr
+              td 
+                = link_to train.number, admin_train_path(train)
+              td 
+                = train.current_station ? train.current_station.title : t('common.unspecified')
 
 => link_to t('common.edit'), edit_admin_route_path(@route)
 |
