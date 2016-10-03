@@ -1,26 +1,27 @@
 =form_for [:admin, ticket] do |f|
   =render 'common/errors', resource: @ticket
   
-  .field
+  .form-group
     =f.label :user_name
-    =f.collection_select :user_id, User.all, :id, :user_name
+    =f.collection_select :user_id, User.all, :id, :user_name, {}, class: "form-control"
   
-  .field 
+  .form-group
     =f.label :train
-    =f.collection_select :train_id, Train.all, :id, :number
+    =f.collection_select :train_id, Train.all, :id, :number, {}, class: "form-control"
     
-  .field 
+  .form-group 
     =f.label :departure_station
-    =f.collection_select :departure_station_id, RailwayStation.all, :id, :title
+    =f.collection_select :departure_station_id, RailwayStation.all, :id, :title, {}, class: "form-control"
     
-  .field 
+  .form-group
     =f.label :destination_station
-    =f.collection_select :destination_station_id, RailwayStation.all, :id, :title     
-  .field
+    =f.collection_select :destination_station_id, RailwayStation.all, :id, :title, {}, class: "form-control"   
+  .form-group
     = f.label :credentials
-    = f.text_field :credentials
-  .field
+    = f.text_field :credentials, class: "form-control"
+  .form-group
     = f.label :passport_number
-    = f.text_field :passport_number
-  .field
-    = f.submit "#{ticket.new_record? ? t('common.create') : t('common.update')}"
+    = f.text_field :passport_number, class: "form-control"
+    
+  .form-group
+    = f.submit "#{ticket.new_record? ? t('common.create') : t('common.update')}", class: "btn btn-default"

@@ -6,8 +6,8 @@ tr
   td 
     = ticket.user ? ticket.user.user_name : t('common.unspecified')
   td 
-    = link_to t('common.show'), admin_ticket_url(ticket)  
+    = link_to t('common.show'), admin_ticket_url(ticket), class: "btn btn-default"  
   td
-    = link_to t('common.edit'), edit_admin_ticket_url(ticket)    
+    = link_to t('common.edit'), edit_admin_ticket_url(ticket), class: "btn btn-default"    
   td
-    = link_to t('common.delete'), admin_ticket_url(ticket), method: :delete, data: { confirm: t('common.shure_alert') }
+    = link_to t('common.delete'), admin_ticket_url(ticket), method: :delete, data: { confirm: t('common.shure_alert') }, class: "btn btn-danger"

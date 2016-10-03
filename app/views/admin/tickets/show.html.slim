@@ -1,7 +1,7 @@
 h1 
   |Билет 
   ="№#{@ticket.id}"
-table
+table.table.table-hover.table-striped
   thead
   tr
     th 
@@ -12,6 +12,7 @@ table
       = t('activerecord.attributes.ticket.passport_number')
     th 
       = t('activerecord.attributes.ticket.train')
+    th  
   tr 
     td 
       = @ticket.user.user_name
@@ -24,9 +25,11 @@ table
         = link_to @ticket.train.number, admin_train_path(@ticket.train)
       -else
         = t('common.not_defined')
+    td
+      = link_to t('.edit_ticket'), edit_admin_ticket_path(@ticket), class: "btn btn-default"
         
-=<> link_to t('.edit_ticket'), edit_admin_ticket_path(@ticket)
-||
+
+
 =<> link_to t('.tickets_list'), admin_tickets_path
 ||
 =<> link_to t('common.to_homepage'), welcome_index_path

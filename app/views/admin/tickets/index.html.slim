@@ -1,11 +1,13 @@
 
 h1
   = t('.title')
-table
+table.table.table-hover
   thead
     tr 
       th 
         = t('activerecord.attributes.ticket.number')
+      th 
+        = t('activerecord.attributes.ticket.user_name')
       th 
         = t('activerecord.attributes.ticket.credentials')
   = render @tickets
