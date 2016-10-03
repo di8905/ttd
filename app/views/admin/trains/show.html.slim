@@ -1,37 +1,51 @@
 h1 
   => t('.title')
   = @train.number
-p
-  strong 
-    =t('activerecord.models.route')
-    |:
-  =< link_to @train.route.name, admin_route_path(@train.route)
-p
+table.table.table-bordered  
+  -if @train.route
+    tr
+      td
+        strong 
+          =t('activerecord.models.route')
+          |:
+        =< link_to @train.route.name, admin_route_path(@train.route)
+  -if @train.current_station
+    tr
+      td
+        strong 
+          = t('activerecord.attributes.train.current_station')
+          |:
+        =< link_to @train.current_station.title, admin_railway_station_path(@train.current_station)
   -if @train.carriages.present?
-    strong 
-      =t('.car_list')
-      |:
-    table
-      thead
-      tr
-        th 
-          = t('activerecord.attributes.carriage.number')
-        th 
-          = t('activerecord.attributes.carriage.type') 
-        th colspan="3"
-      - @train.carriages.each do |carriage|
-        tr
-          td
-            = link_to "#{t('activerecord.models.carriage')} №#{carriage.number}", admin_carriage_path(carriage)
-          td
-            = link_to carriage.type_name, admin_carriage_path(carriage)
-          td
-            = link_to t('common.show'), admin_carriage_path(carriage)
-          td 
-            =link_to t('common.edit'), edit_admin_carriage_path(carriage)  
-          td 
-            = link_to t('common.delete'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('shure_alert')}  
-p
+    tr
+      td
+        strong 
+          =t('.car_list')
+        br
+        br
+        .row
+          .col-md-4  
+            table.table.table-striped.table-hover
+              thead
+              tr
+                th 
+                  = t('activerecord.attributes.carriage.number')
+                th 
+                  = t('activerecord.attributes.carriage.type') 
+                th colspan="3"
+              - @train.carriages.each do |carriage|
+                tr
+                  td
+                    = link_to "#{t('activerecord.models.carriage')} №#{carriage.number}", admin_carriage_path(carriage) 
+                  td
+                    = link_to carriage.type_name, admin_carriage_path(carriage)
+                  td
+                    = link_to t('common.show'), admin_carriage_path(carriage), class: "btn btn-default"
+                  td 
+                    =link_to t('common.edit'), edit_admin_carriage_path(carriage), class: "btn btn-default"  
+                  td 
+                    = link_to t('common.delete'), admin_carriage_path(carriage), method: :delete, data: { confirm: t('shure_alert')}, class: "btn btn-danger"  
+
 
 => link_to t('common.edit'), edit_admin_train_path(@train)
 |

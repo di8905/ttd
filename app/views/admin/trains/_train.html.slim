@@ -1,9 +1,9 @@
 tr
   td
-    = train.number
+    strong = train.number
   td
-    = link_to t('common.show'), [:admin, train]
+    = link_to t('common.show'), [:admin, train], class: "btn btn-default"
   td
-    = link_to t('common.edit'), edit_admin_train_path(train)
+    = link_to t('common.edit'), edit_admin_train_path(train), class: "btn btn-default"
   td
-    = link_to t('common.delete'), [:admin, train], method: :delete, data: { confirm: t('common.shure_alert') }
+    = link_to t('common.delete'), [:admin, train], method: :delete, data: { confirm: t('common.shure_alert') }, class: "btn btn-danger"

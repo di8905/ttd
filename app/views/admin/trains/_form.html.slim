@@ -1,18 +1,22 @@
 = form_for([:admin, train]) do |f|
   = render 'common/errors', resource: @train
-  .field
+  .form-group
     = f.label :number
-    = f.text_field :number
-  .field
+    = f.text_field :number, class: "form-control"
+  .form-group
     = f.label :current_station
-    = f.collection_select :current_station_id, RailwayStation.all, :id, :title
-  .field
+    = f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, class: "form-control"
+  .form-group
     = f.label :current_station
-    = f.collection_select :route_id, Route.all, :id, :name
-  .field
-    = f.label :carriage_sort_order
-    = f.check_box :carriage_sort_order  
+    = f.collection_select :route_id, Route.all, :id, :name, {}, class: "form-control"
+  .form-group
+    = f.check_box :carriage_sort_order
+    =< f.label :carriage_sort_order
+  
+  -unless @train.new_record?
+    .form-group
+      = link_to t('.add_wagon'), new_admin_train_carriage_path(@train), class: "btn btn-default"  
     
   .actions
-    = f.submit train.new_record? ? t('common.create') : t('common.update')
+    = f.submit train.new_record? ? t('common.create') : t('common.update'), class: "btn btn-default"
   
