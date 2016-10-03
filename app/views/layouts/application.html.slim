@@ -25,7 +25,7 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="/"Ttd
+          a.navbar-brand href="/"Tutu
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               -if user_signed_in?
@@ -37,6 +37,7 @@ html lang="en"
                   li = link_to t('admin.home.dashboard.tickets_list'), admin_tickets_path
                 li = link_to t('user.tickets_list'), tickets_path
                 li = link_to t('user.tickets_search'), ticket_search_path
+                li = link_to current_user.user_name, edit_user_registration_path
                 li = link_to t('common.exit'), destroy_user_session_path, method: :delete
               -else
                 li= link_to t('common.sign_in'), new_user_session_path  
@@ -48,5 +49,10 @@ html lang="en"
           = bootstrap_flash
           = yield
 
-      footer
-        p &copy; Company 2016
+    .navbar-fixed-bottom
+      .navbar-inner
+        .container
+          footer.footer
+            |  &copy 2016 Павлов Денис. Учебный проект в онлайн школе 
+            a[href="http://thinknetica.com/"]
+              | Thinknetica
