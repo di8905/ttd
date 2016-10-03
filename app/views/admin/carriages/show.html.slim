@@ -1,20 +1,26 @@
-p
-  strong
-    = t('.title') 
-  =< @carriage.id
-p
-  strong
-    = t('activerecord.attributes.carriage.type')
-    |: 
-  =< @carriage.type_name
-p
-  strong
-    => t('.linked_to') 
-  = @carriage.train ? link_to(@carriage.train.number, [:admin, @carriage.train]) : t('common.not_defined')
-- if @carriage.type
-  = render "#{@carriage.type.underscore}_seats"
-- else
-  - render @carriage
+h1 Просмотр вагона
+table.table.table-bordered
+  tr
+    td
+      strong
+        = t('.title') 
+      =< @carriage.id
+  tr
+    td
+      strong
+        = t('activerecord.attributes.carriage.type')
+        |: 
+      =< @carriage.type_name
+  tr
+    td
+      strong
+        => t('.linked_to') 
+      = @carriage.train ? link_to(@carriage.train.number, [:admin, @carriage.train]) : t('common.not_defined')
+  - if @carriage.type
+  tr
+    td
+      = render "#{@carriage.type.underscore}_seats"
+  
 = link_to t('common.edit'), edit_admin_carriage_path(@carriage)
 |  | 
 = link_to t('common.back'), [:admin, @carriage.train]

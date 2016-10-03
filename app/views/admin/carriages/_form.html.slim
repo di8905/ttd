@@ -1,26 +1,26 @@
 = form_for [:admin, @train, carriage.becomes(Carriage)] do |f|
   = render 'common/errors', resource: @carriage
   - f.object = carriage
-  .field
+  .form-group
     = f.label "#{t('.train_link_prompt')} #{carriage.train.number}"
-  .field
+  .form-group
     = f.label :type
     - opt = options_for_select [ [t('activerecord.models.sv_carriage'), :SvCarriage], [t('activerecord.models.coupe_carriage'), :CoupeCarriage], [t('activerecord.models.economy_carriage'), :EconomyCarriage], [t('activerecord.models.seat_carriage'), :SeatCarriage] ], carriage.type
-    = f.select :type, opt
-  .field
+    = f.select :type, opt,{} , class: "form-control"
+  .form-group
     = f.label :top_seats
-    = f.text_field :top_seats, size: "7"
-  .field
+    = f.text_field :top_seats, size: "7", class: "form-control"
+  .form-group
     = f.label :bottom_seats
-    = f.text_field :bottom_seats, size: "7"
-  .field
+    = f.text_field :bottom_seats, size: "7", class: "form-control"
+  .form-group
     = f.label :side_top_seats
-    = f.text_field :side_top_seats, size: "7"
-  .field
+    = f.text_field :side_top_seats, size: "7", class: "form-control"
+  .form-group
     = f.label :side_bottom_seats
-    = f.text_field :side_bottom_seats, size: "7"
-  .field
+    = f.text_field :side_bottom_seats, size: "7", class: "form-control"
+  .form-group
     = f.label :seats
-    = f.text_field :seats, size: "7"
+    = f.text_field :seats, size: "7", class: "form-control"
   .actions
     = f.submit "#{@carriage.new_record? ? t('.submit.create') : t('.submit.update')}"
