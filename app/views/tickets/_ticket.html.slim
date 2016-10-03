@@ -4,6 +4,6 @@ tr
   td  
     = ticket.credentials ? ticket.credentials : "Не указано"
   td 
-    = link_to "Показать", ticket_url(ticket)  
+    = link_to "Показать", ticket_url(ticket), class: "btn btn-default"  
   td
-    = link_to "Удалить", ticket_url(ticket), method: :delete, data: { confirm: "Вы уверены?" }
+    = link_to "Удалить", ticket_url(ticket), method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-danger" 

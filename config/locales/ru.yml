@@ -20,6 +20,10 @@ ru:
     tickets_list: "Мои билеты"
     tickets_search: "Поиск билетов" 
     trains_found: "Найдены поезда по вашему запросу:"
+  tickets:
+    show:
+      edit_ticket: "Редактировать билет"
+      tickets_list: "Мои билеты"
   admin:
     home: 
       dashboard:

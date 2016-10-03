@@ -1,9 +1,10 @@
-
-h1 Список билетов
-table
-  thead
-    tr 
-      th Номер
-      th ФИО
-  = render @tickets
-=<> link_to 'В начало', welcome_index_path  
+.tr
+  .col-md-8
+    h1 Список билетов
+    table.table.table-hover
+      thead
+        tr 
+          th =t('activerecord.attributes.ticket.number')
+          th =t('activerecord.attributes.ticket.credentials')
+      = render @tickets
+    =<> link_to 'В начало', welcome_index_path  
