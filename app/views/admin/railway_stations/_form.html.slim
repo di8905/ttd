@@ -1,7 +1,7 @@
 = form_for(railway_station) do |f|
   = render 'common/errors', resource: @railway_station
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: "form-control"
   .actions
-    = f.submit @railway_station.new_record? ? t('common.create') : t('common.update')
+    = f.submit @railway_station.new_record? ? t('common.create') : t('common.update'), class: "btn btn-default"

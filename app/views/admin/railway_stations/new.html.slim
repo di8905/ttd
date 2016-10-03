@@ -1,4 +1,7 @@
 h1
   = t('admin.railway_stations.new.title')
+  
 = render 'form', railway_station: [:admin, @railway_station]
+
+br
 = link_to t('common.back'), admin_railway_stations_path
