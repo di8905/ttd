@@ -1,0 +1,5 @@
+p Привет, = @user.user_name
+
+p Вы купили билет по маршруту #{@ticket.route_name}
+p Посмотреть билет вы можете #{ link_to "здесь", @ticket}
+p Ваши билеты вы можете смотреть #{link_to "здесь", tickets_url}
