@@ -1,5 +1,8 @@
 h1 Поиск билетов
 = form_tag ticket_search_path, method: :get
+
+  =render 'common/errors', resource: @search
+  
   strong Начальная станция: 
   =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
   strong Конечная станция: 
