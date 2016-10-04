@@ -33,6 +33,7 @@ gem 'devise'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'rails_12factor'
+gem 'mail'
 
 
 # Use Capistrano for deployment
