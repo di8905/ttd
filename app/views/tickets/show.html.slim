@@ -26,7 +26,7 @@ table.table.table-hover.table-striped
       -else
         = t('common.not_defined')
     td
-      = link_to t('.edit_ticket'), edit_admin_ticket_path(@ticket), class: "btn btn-default"
+      = link_to t('Отказаться от билета'), ticket_path(@ticket), method: :delete, data: { confirm: t('shure_alert')}, class: "btn btn-default"
         
 
 
