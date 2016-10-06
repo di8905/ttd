@@ -1,7 +1,7 @@
 h1
   = t('.title')
   
-= render 'form', railway_station: [:admin, @railway_station]
+= render 'form', railway_station: @railway_station, hidden: false
 
 br
 = link_to t('common.show'), [:admin, @railway_station]

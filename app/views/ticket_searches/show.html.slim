@@ -1,35 +1,41 @@
 h1 Поиск билетов
-= form_tag ticket_search_path, method: :get
+.row
+  
+    = form_tag ticket_search_path, method: :get, class: "form form-inline search-form"
+      .col-md-4
+        label Начальная станция: 
+        =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
+      .col-md-4
+        label Конечная станция: 
+        =<> collection_select :destination_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
+      .col-md-4
+        = submit_tag 'Искать', class: "btn btn-primary find"
+  
+    br
+    br
+    -if @trains
+      h2 = t('user.trains_found')
+      table.table.table-hover
+        thead
+          tr
+            th 
+              strong Поезд
+            th 
+              strong Время отправления с начальной станции
+            th 
+              strong Время прибытия на конечную станцию
+        - @trains.each do |train|  
+          tr
+            td = link_to train.number, admin_train_path(train)
+            td = @departure_station.departure(train.route) ? @departure_station.departure(train.route).strftime("%H:%M") : "не указано"
+            td = @destination_station.arrival(train.route) ? @destination_station.arrival(train.route).strftime("%H:%M") : "не указано"
+            td 
+              = form_tag new_ticket_path, method: :get
+              = hidden_field_tag 'ticket[train_id]', train.id
+              = hidden_field_tag 'ticket[departure_station_id]', @departure_station.id
+              = hidden_field_tag 'ticket[destination_station_id]', @destination_station.id
+              = submit_tag 'Купить билет'
+br 
 
-  strong Начальная станция: 
-  =<> collection_select :departure_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
-  strong Конечная станция: 
-  =<> collection_select :destination_station, :id, RailwayStation.all, :id, :title, {}, class: "form-control"
-  br
-  = submit_tag 'Искать'
-br
-
--if @trains
-  h2 = t('user.trains_found')
-  table.table.table-hover
-    thead
-      tr
-        th 
-          strong Поезд
-        th 
-          strong Время отправления с начальной станции
-        th 
-          strong Время прибытия на конечную станцию
-    - @trains.each do |train|  
-      tr
-        td = link_to train.number, admin_train_path(train)
-        td = @departure_station.departure(train.route) ? @departure_station.departure(train.route).strftime("%H:%M") : "не указано"
-        td = @destination_station.arrival(train.route) ? @destination_station.arrival(train.route).strftime("%H:%M") : "не указано"
-        td 
-          = form_tag new_ticket_path, method: :get
-          = hidden_field_tag 'ticket[train_id]', train.id
-          = hidden_field_tag 'ticket[departure_station_id]', @departure_station.id
-          = hidden_field_tag 'ticket[destination_station_id]', @destination_station.id
-          = submit_tag 'Купить билет'
 =< link_to 'В начало', welcome_index_path
   
