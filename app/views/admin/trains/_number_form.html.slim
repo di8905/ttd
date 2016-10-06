@@ -1,0 +1,5 @@
+= form_for [:admin, train], html: { style: "display: none" } do |f|
+  = render 'common/errors', resource: train
+  .form-group
+    = f.text_field :number, class: "form-control"
+    = f.submit "Изменить номер", class: "btn btn-info"

@@ -1,6 +1,7 @@
   $(document).ready(function() {
     $("a.edit_station").click(function(e) {
       e.preventDefault();
+      
       var station_id;
       var form; 
       var title;

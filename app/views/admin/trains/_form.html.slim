@@ -1,5 +1,5 @@
 = form_for([:admin, train]) do |f|
-  = render 'common/errors', resource: @train
+  = render 'common/errors', resource: train
   .form-group
     = f.label :number
     = f.text_field :number, class: "form-control"
