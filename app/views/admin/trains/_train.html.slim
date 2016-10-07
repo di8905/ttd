@@ -1,10 +1,10 @@
 tr
   td
     div[id="train_number_#{train.id}"]
-      = link_to train.number, edit_admin_train_path(train)
+      = link_to train.number, admin_train_path(train)
     = render 'number_form', train: train, hidden: true
   td
-    = link_to t('common.show'), [:admin, train], class: "btn btn-default"
+    = link_to t('admin.trains.edit_train'), edit_admin_train_path(train), class: "btn btn-default"
   td
     = link_to t('common.edit_number'), "", class: "btn btn-default edit_number", data: {train_id: train.id}
   td

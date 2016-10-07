@@ -1,8 +1,8 @@
 h1
   = t('.title')
 .row
-   .col-md-6  
-      table.table.table-hover
+     
+      table.table.table-hover.table-striped
         thead
           tr
             th
@@ -11,6 +11,4 @@ h1
         tbody
           = render @trains
       br
-      = link_to t('.add_train'), new_admin_train_path
-      |  | 
-      = link_to t('common.to_homepage'), welcome_index_path
+      = link_to t('.add_train'), new_admin_train_path, class: "btn btn-success"

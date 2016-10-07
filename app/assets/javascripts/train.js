@@ -11,10 +11,10 @@ $(document).ready(function(){
     
     if (!$(this).hasClass("cancel")) {
       $(this).html('Отменить');
-      $(this).addClass('cancel');
+      $(this).addClass('cancel btn-warning');
     } else {
       $(this).html('Редактировать номер');
-      $(this).removeClass('cancel');
+      $(this).removeClass('cancel btn-warning');
     }
     form.toggle();
     title.toggle();

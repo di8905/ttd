@@ -23,4 +23,4 @@
     = f.label :seats
     = f.text_field :seats, size: "7", class: "form-control"
   .actions
-    = f.submit "#{@carriage.new_record? ? t('.submit.create') : t('.submit.update')}"
+    = f.submit "#{@carriage.new_record? ? t('.submit.create') : t('.submit.update')}", class: "btn btn-success"

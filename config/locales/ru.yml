@@ -10,7 +10,7 @@ ru:
     back: "Назад"
     show: "Показать"
     edit: "Редактировать"
-    edit_number: "Редактировать номер"
+    edit_number: "Изменить номер"
     delete: "Удалить"
     shure_alert: "Вы уверены?"
     to_homepage: "В начало"
@@ -40,11 +40,15 @@ ru:
       form: 
         submit_button: "%{action} станцию"
     trains:
+      no_carriages: "Вагонов не присоединено"
+      update: "Изменить поезд"
+      create: "Создать поезд"
+      edit_train: "Редактировать поезд"
       form:
         add_wagon: "Добавить вагон к поезду"
       new:
         title: "Создание поезда"
-      edit:
+      edit: 
         title: "Редактирование поезда"
         trains_list: "Список поездов"   
       index: 

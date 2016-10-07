@@ -13,10 +13,15 @@
     = f.check_box :carriage_sort_order
     =< f.label :carriage_sort_order
   
+  - if @train.carriages.present?
+    .form-group  
+      = render 'train_carriages', train: @train    
+  
   -unless @train.new_record?
     .form-group
       = link_to t('.add_wagon'), new_admin_train_carriage_path(@train), class: "btn btn-success"  
+      
     
   .actions.form-group
-    = f.submit train.new_record? ? t('common.create') : t('common.update'), class: "btn btn-info"
+    = f.submit train.new_record? ? t('admin.trains.create') : t('admin.trains.update'), class: "btn btn-success"
   
