@@ -15,8 +15,8 @@
   
   -unless @train.new_record?
     .form-group
-      = link_to t('.add_wagon'), new_admin_train_carriage_path(@train), class: "btn btn-default"  
+      = link_to t('.add_wagon'), new_admin_train_carriage_path(@train), class: "btn btn-success"  
     
-  .actions
-    = f.submit train.new_record? ? t('common.create') : t('common.update'), class: "btn btn-default"
+  .actions.form-group
+    = f.submit train.new_record? ? t('common.create') : t('common.update'), class: "btn btn-info"
   
