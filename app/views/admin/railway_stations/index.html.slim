@@ -1,5 +1,5 @@
 .row
-  .col-md-8
+  .col-md-6
     h1 = t('.title')
     table.table.table-hover
       thead
@@ -9,6 +9,4 @@
       tbody
         = render @railway_stations
 .row    
-  = link_to t('.add_station'), new_admin_railway_station_path
-  |  |  
-  = link_to t('common.to_homepage'), welcome_index_path
+  = link_to t('.add_station'), new_admin_railway_station_path, class: "btn btn-success"

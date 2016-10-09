@@ -3,4 +3,4 @@
   .form-group
     = f.text_field :title, class: "form-control"
   .actions
-    = f.submit railway_station.new_record? ? t('common.create') : t('common.update'), class: "btn btn-default"
+    = f.submit railway_station.new_record? ? t('common.create') : t('common.update'), class: "btn #{railway_station.new_record? ? 'btn-success' : 'btn-info'}"

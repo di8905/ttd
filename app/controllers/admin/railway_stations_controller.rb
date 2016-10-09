@@ -1,13 +1,10 @@
 class Admin::RailwayStationsController < Admin::BaseController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :set_departure, :set_arrival]
+  before_action :set_railway_station, only: [:edit, :update, :destroy, :update_position, :set_departure, :set_arrival]
   before_action :set_route, only: [:update_position, :set_departure, :set_arrival]
   before_action :get_time_value, only: [:set_departure, :set_arrival]
 
   def index
     @railway_stations = RailwayStation.all
-  end
-
-  def show
   end
 
   def new

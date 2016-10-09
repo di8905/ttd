@@ -10,10 +10,10 @@
       form = $("#edit_railway_station_" + station_id);
       if (!$(this).hasClass('cancel')){
         $(this).html('Отменить');
-        $(this).addClass("cancel");
+        $(this).addClass("cancel btn-warning");
       } else {
         $(this).html('Редактировать');
-        $(this).removeClass("cancel");
+        $(this).removeClass("cancel btn-warning");
       }
       form.toggle();
       title.toggle();      

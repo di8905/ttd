@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :carriages, shallow: true
     end
     resources :routes
-    resources :railway_stations do
+    resources :railway_stations, except: :show do
       patch :update_position, on: :member
       patch :set_departure, on: :member
       patch :set_arrival, on: :member

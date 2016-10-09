@@ -4,8 +4,6 @@ tr
       = railway_station.title
     = render 'form', railway_station: railway_station, hidden: true
   td
-    = link_to t('common.show'), [:admin, railway_station], class: "btn btn-default"
-  td
     = link_to t('common.edit'), '', class: "btn btn-default edit_station", data: { station_id: railway_station.id}
   td
     = link_to t('common.delete'), [:admin, railway_station], method: :delete, data: { confirm: t('common.shure_alert') }, class: "btn btn-danger"
